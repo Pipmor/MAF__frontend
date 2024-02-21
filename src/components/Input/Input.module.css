@@ -1,0 +1,12 @@
+.inputClass {
+  font-size: 16px;
+  border-radius: 16px;
+  padding: 20px;
+  width: 100%;
+  resize: none;
+  border:2px solid var(--border-color)
+}
+
+.inputClass[type="textarea"] {
+  height: 100%;
+}

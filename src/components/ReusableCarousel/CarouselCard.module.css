@@ -1,0 +1,29 @@
+.wrapperCard {
+  width: 95%;
+  margin: auto;
+  display: flex;
+  height: 21.25em;
+  border-radius: 20px;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+}
+
+.wrapperCard img {
+  height: auto;
+  max-width: 100%;
+}
+
+@media screen and (max-width: 1200px){
+  .wrapperCard {
+    height: 15em;
+    border-radius: 16px;
+  }
+}
+
+@media screen and (max-width: 600px){
+  .wrapperCard {
+    height: 10.375em;
+    border-radius: 16px;
+  }
+}

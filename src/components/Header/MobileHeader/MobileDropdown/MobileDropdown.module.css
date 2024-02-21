@@ -1,0 +1,9 @@
+.dropdown {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  color: #ffffff;
+  font-size: 18px;
+  padding-left: 20px;
+  margin-top: 12px;
+}

@@ -1,0 +1,19 @@
+.headingWrapper {
+  margin-bottom: 40px;
+}
+
+.heading {
+  text-align: center;
+  font-weight: 600;
+  font-size: var(--fontsize-h2);
+}
+
+.subHeading {
+  text-align: center;
+  margin-top: 20px;
+  font-size: var(--fontsize-subheading);
+}
+
+.section {
+  width: 100%;
+}

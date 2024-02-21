@@ -1,0 +1,48 @@
+.wrapperCards {
+  position: relative;
+  margin-top: 2em;
+  border: 2px solid var(--cfa);
+  background-color: white;
+  border-radius: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 3em;
+}
+
+.animatedLine {
+  border: 1.5px solid var(--cfa);
+  position: absolute;
+  margin-top: 9.8em;
+  left: 18%;
+}
+@media screen and (max-width: 800px) {
+  .wrapperCards {
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    border: none;
+    margin-top: 0;
+  }
+  .animatedLine {
+    border: 1.5px solid var(--cfa);
+    position: absolute;
+    margin-top: 6em;
+    left: 57px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .animatedLine {
+    margin-top: 5em;
+    left: 50px;
+  }
+}
+
+@media screen and (max-width: 324px) {
+  .animatedLine {
+    margin-top: 6em;
+    left: 50px;
+  }
+}

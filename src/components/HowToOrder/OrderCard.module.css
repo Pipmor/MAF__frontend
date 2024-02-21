@@ -1,0 +1,137 @@
+.wrapperCard {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.stepNumber {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--cfa);
+}
+
+.secondNumber,.stepNumber span {
+  font-weight: 600;
+  font-size: 40px;
+}
+
+.secondNumber {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--cfa);
+}
+
+.littleCircle {
+  margin-top: 3em;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--cfa);
+}
+.textwrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.h3 {
+  margin-top: 2.3em;
+  font-size: 24px;
+}
+
+.h4 {
+  font-size: 24px;
+}
+
+.descriptions, .description {
+  font-size: 20px;
+  margin-top: 1em;
+}
+
+@media screen and (max-width: 800px) {
+  .wrapperCard {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    text-align: left;
+    gap: 20px;
+    
+  }
+
+  .littleCircle {
+    display: none;
+  }
+
+  .secondNumber span, .stepNumber span {
+    font-size: 30px;
+  } 
+  .stepNumber {
+    min-width: 70px;
+    height: 70px;
+    z-index: 100;
+  }
+
+  .secondNumber {
+    min-width: 70px;
+    height: 70px;
+    z-index: 100;
+  }
+
+}
+
+@media screen and (max-width: 500px) {
+  .wrapperCard {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    text-align: left;
+    gap: 20px;
+    
+  }
+  .stepNumber {
+    min-width: 60px;
+    height: 60px;
+    z-index: 100;
+  }
+
+  .secondNumber {
+    min-width: 60px;
+    height: 60px;
+    z-index: 100;
+  }
+
+  .littleCircle {
+    display: none;
+  } 
+  
+  .descriptions, .description {
+    font-size: 14px;
+    
+  }
+  .h3 {
+    font-size: 18px;
+  }
+  
+  .h4 {
+    font-size: 18px;
+  }
+  .secondNumber span, .stepNumber span {
+    font-size: 20px;
+  }
+}

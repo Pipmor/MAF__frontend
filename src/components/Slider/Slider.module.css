@@ -1,0 +1,23 @@
+@keyframes slide{
+  from{
+    transform: translateX(0);
+  }
+  to{
+    transform: translateX(-100%);
+  }
+}
+
+.wrapperContainer {
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+  gap: 20px;
+}
+
+.logos_slide{
+  
+  display: flex;
+  animation: 10s slide infinite linear;
+  gap: 20px;
+}

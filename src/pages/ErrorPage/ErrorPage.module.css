@@ -1,0 +1,35 @@
+.errorWrapper {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.errorContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  max-width: 840px;
+}
+
+.errorText {
+  text-align: center;
+  font-size: var(--fontsize-subheading);
+}
+
+.heading {
+  font-size: var(--font-size-h1);
+}
+
+@media (max-width: 800px) {
+  .errorContainer {
+    gap: 10px;
+    max-width: 270px;
+  }
+
+  .errorImage {
+    width: 150px;
+  }
+}

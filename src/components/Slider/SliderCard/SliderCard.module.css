@@ -1,0 +1,16 @@
+.wrapperCard {
+    min-width: 220px;
+    height: 160px;
+    padding: 25px 17px;
+    display: flex;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+  }
+  
+  .wrapperCard img {
+    height: auto;
+    max-width: 100%;
+  }
+  

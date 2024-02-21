@@ -1,0 +1,23 @@
+.advantagesBlock{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 20px;
+}
+@media screen and (max-width: 1225px){
+    .advantagesBlock{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 2fr;
+        gap: 20px;  
+    }
+
+}
+@media screen and (max-width: 800px){
+    .advantagesBlock{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-auto-rows: 4fr;
+        gap: 20px;  
+    }
+}

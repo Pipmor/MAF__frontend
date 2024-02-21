@@ -1,0 +1,21 @@
+.navList {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  gap: 8px;
+  font-size: 18px;
+  color: var(--btn-text-color-disabled);
+  padding-top: 20px;
+}
+
+.navLink:hover {
+  color: var(--grey-700-text);
+}
+
+.navLink:global.active {
+  color: var(--grey-700-text);
+}
+
+.span {
+  color: var(--grey-700-text);
+}

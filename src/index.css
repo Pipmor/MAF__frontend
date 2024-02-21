@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Aleo:wght@400&display=swap");
+
+:root {
+  font-family: "Montserrat", sans-serif;
+  --color-main: #1f2d3a;
+  --color-text-primary: #0d0d0d;
+  --color-text-secondary: #fff;
+  --color-text-hover: #262626;
+  --color-text-disabled: #6e6e6e;
+  --color-button-default: #fac11c;
+  --color-button-hover: #ffd55b;
+  --color-button-active: #967000;
+  --color-button-disabled: #a6a6a6;
+  --color-background-primary: #fff;
+  --color-background-secondary: #f5f5f5;
+  --color-error-primary: #cc0000;
+  --color-success-primary: #44cd00;
+  --color-success-secondary: #00d95f;
+
+  --grey-700-text: #0d0d0d;
+  --grey-100: #fff;
+  --background-color-primary: #f5f5f5;
+  --btn-background-enabled: #fac11c;
+  --btn-background-hover: #ffce41;
+  --btn-background-active: #d29c00;
+  --btn-background-disabled: #a6a6a6;
+  --btn-text-color-enabled: #1f2d3a;
+  --btn-text-color-hover: #ffffff;
+  --btn-text-color-disabled: #6e6e6e;
+  --btn-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.2);
+  --whatsapp-btn-background: #00d95f;
+  --whatsapp-btn-shadow: 0 0 40px rgba(0, 0, 0, 0.15);
+  --border-color: #0d0d0d;
+  --modal-backgr-color: #ffffff;
+  --modal-box-shadow: #00000040;
+  --modal-back-drop: #00000088;
+  --layout-max-width: 1920px;
+  --container-max-width: 1420px;
+  --container-inline-padding: 10px;
+  --bwa: #1f2d3a;
+  --cfa: #fac11c;
+
+  --arrow-icon-width: 32;
+  --arrow-icon-height: 16;
+
+  --fontsize-h2: 40px;
+  --fontsize-h3: 28px;
+  --fontsize-p: 20px;
+  --fontsize-footer: 20px;
+  --fontsize-subheading: 24px;
+  --fontsize-breadcrumbs: 18px;
+  --fontsize-detailTitle:28px;
+
+  --layout-gap: 140px;
+}
+
+.container {
+  max-width: calc(
+    var(--container-max-width) - (2 * var(--container-inline-padding))
+  );
+  padding-inline: var(--container-inline-padding);
+  margin-inline: auto;
+}
+
+body {
+  background-color: var(--background-color-primary);
+  color: var(--grey-700-text);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul,
+ol {
+  list-style-type: none;
+}
+
+@media (max-width: 800px) {
+  :root {
+    --font-size-h1: 20px;
+    --fontsize-h2: 24px;
+    --fontsize-h3: 18px;
+    --fontsize-p: 14px;
+    --fontsize-footer: 16px;
+    --fontsize-subheading: 14px;
+    --fontsize-breadcrumbs: 16px;
+    --fontsize-detailTitle:20px;
+
+    --arrow-icon-width: 20;
+    --arrow-icon-height: 10;
+
+    --layout-gap: 60px;
+  }
+}

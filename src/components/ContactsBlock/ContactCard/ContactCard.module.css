@@ -1,0 +1,36 @@
+.ContactCard {
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 40px;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 23px;
+  font-weight: 600;
+  font-size: var(--fontsize-h3);
+  margin-bottom: 41px;
+}
+
+.contactList {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 20px;
+}
+
+.contactLine {
+  width: 100%;
+  font-size: var(--fontsize-p);
+}
+
+.skeleton {
+  background-color: var(--color-background-secondary);
+  color: var(--color-background-secondary);
+  border-radius: 3px;
+}
+
+.skeleton::before {
+  content: "loading...";
+}

@@ -1,0 +1,77 @@
+.mobileHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  color: var(--grey-100);
+  z-index: 200;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.mobileHeader,
+.button,
+.wrapperMenuBar {
+  background-color: var(--bwa);
+}
+
+.button {
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+}
+
+.wrapperMenuBar {
+  position: fixed;
+  top: 0;
+  height: 100%;
+  left: 0;
+  right: 0;
+  transition: transform 400ms ease-in-out;
+  transform-origin: right;
+  transform: translateX(-100%);
+  z-index: 10000;
+  padding: 16px;
+}
+
+.isOpen {
+  transform: translateX(0);
+}
+
+.rotateArrow {
+  transform: rotate(180deg);
+}
+
+.mobileHeaderMenu {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.menubar {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+  display: flex;
+  flex: 1;
+}
+
+.accordionButton {
+  flex: 2;
+}
+
+.accordionButton {
+  display: flex;
+  justify-content: flex-end;
+  cursor: pointer;
+}
+.menuListContainer {
+  margin-top: 26px;
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}

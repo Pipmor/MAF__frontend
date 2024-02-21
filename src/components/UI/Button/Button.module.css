@@ -1,0 +1,48 @@
+
+.button{
+    background: var(--btn-background-enabled);
+    height: 52px;
+    border: none;
+    color: var(--btn-text-color-enabled);
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    line-height: 16px; 
+    padding: 14px 28px;
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: var(--fontsize-p);
+    cursor: pointer;
+    border-radius: 16px;
+    user-select: none;  
+    transition: 0.3s;
+    white-space: nowrap;
+    position: relative;
+}
+
+.button:hover{
+    background: var(--btn-background-hover);
+    color: var(--btn-text-color-hover);
+    box-shadow: var(--btn-shadow); 
+}
+
+.button:active{
+    background: var(--btn-background-active);
+    color: var(--btn-text-color-enabled);
+}
+
+.button:disabled{
+    background: var(--btn-background-disabled);
+    color: var(--btn-text-color-disabled);
+}
+
+@media screen and (max-width: 800px){
+    .button{
+        height: 36px;
+        padding: 8px 18px;
+        border-radius: 12px;
+    }
+} 

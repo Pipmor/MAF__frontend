@@ -1,7 +1,7 @@
 .footer {
-  background-color: var(--color-main);
-  color: var(--color-text-secondary);
-  font-size: var(--fontsize-footer);
+  background-color: #26B9A8FF;
+  color: white;
+  font-size: 16px;
   padding-block: 60px;
 }
 
@@ -10,51 +10,23 @@
   flex-wrap: wrap;
   align-items: start;
   gap: 20px 80px;
-  border-bottom: 1px solid var(--color-text-secondary);
   padding-bottom: 30px;
   position: relative;
 }
 
-.address {
-  font-style: normal;
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-template-columns: repeat(auto-fit 400px);
-  gap: 40px 80px;
-}
-
-.footerContact {
+.footerNav {
   display: flex;
-  align-items: center;
-  gap: 20px;
+  gap: 55px;
+  margin-top: -2em;
+  margin-left: 5em;
 }
 
-.socialMedia {
-  position: absolute;
-  top: 0;
-  right: 0;
-  display: flex;
-  align-items: center;
-  gap: 16px;
+.footerNav a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s ease;
 }
 
-.geekspro {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  margin-top: 28px;
-  font-size: var(--fontsize-breadcrumbs);
-  font-weight: 500;
-}
-
-@media (max-width: 800px) {
-  .socialMedia {
-    position: static;
-  }
-
-  .address {
-    grid-template-columns: 1fr;
-    gap: 25px;
-  }
+.footerNav a:hover {
+  color: #FFA500FF;
 }

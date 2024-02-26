@@ -1,7 +1,6 @@
 .dropdownContainer {
   position: absolute;
   top: 100%;
-  box-shadow: 0px 4px 8px 0px #00000040;
   background-color: var(--bwa);
   padding: 38px 40px 40px 40px;
   border-radius: 0 0 20px 20px;

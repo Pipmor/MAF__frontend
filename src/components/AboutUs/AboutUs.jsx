@@ -1,8 +1,6 @@
 import React from 'react';
 import PageBlock from '../PageBlock/PageBlock';
 import styles from './AboutUs.module.css';
-import mission from '../../assets/mission.jpg';
-import video from '../../assets/video.mp4';
 
 const AboutUs = () => {
 
@@ -17,10 +15,8 @@ const AboutUs = () => {
                 <p className={styles.paragraph}>Выберите LifePrint– выберите качество, доступность и оперативность!</p><br/>
             </div>
             <div className={styles.carousel}>
-                <img src={mission} alt="about us image"/>
-                <video className='video' controls muted>
-                  <source src={video} type="video/mp4" />
-                </video>
+
+
             </div>
         </div>
     </PageBlock>

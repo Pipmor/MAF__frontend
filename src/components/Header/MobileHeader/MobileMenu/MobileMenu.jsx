@@ -1,4 +1,4 @@
-import logo from "../../../../assets/header_logo.png";
+
 import menuIcon from "../../../../assets/icons/hamburger-button.png";
 import closeIcon from "../../../../assets/icons/close.png";
 import { Link } from "react-router-dom";
@@ -14,7 +14,6 @@ const MobileMenu = ({ isMobileHeader, handleMenuOpen, handleMenuClose }) => {
       }
     >
       <Link to="/" onClick={!isMobileHeader ? handleMenuClose : undefined}>
-        <img src={logo} alt="logo" />
       </Link>
       <button
         className={styles.button}

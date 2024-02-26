@@ -1,9 +1,11 @@
 import { createBrowserRouter, NavLink, RouterProvider } from "react-router-dom";
+import Partners from "../Partners/Partners.jsx";
 import Home from "../Home/Home.jsx";
 import Products from "../Products/Products.jsx";
 import Contacts from "../Contacts/Contacts.jsx";
 import About from "../About/About.jsx";
-import Blog from "../Blog/Blog.jsx";
+import Press from "../Press/Press.jsx";
+import Questions from "../Questions/Questions.jsx";
 import Layout from "../../components/Layout/Layout.jsx";
 import { getServiceById } from "../../api/getServiceById.js";
 import styles from "../../components/Breadcrumbs/Breadcrumbs.module.css";
@@ -11,6 +13,7 @@ import Services from "../Services/Services.jsx";
 import ErrorPage from "../ErrorPage/ErrorPage.jsx";
 import { getProductById } from "../../api/getProductById.js";
 import DetailPage from "../DetailPage/DetailPage.jsx";
+
 
 const Router = () => {
   const router = createBrowserRouter([
@@ -77,13 +80,35 @@ const Router = () => {
           ],
         },
         {
-          path: "blog",
-          element: <Blog />,
+          path: "partners",
+          element: <Partners />,
           handle: {
             crumb: () => (
-              <NavLink to="/blog" className={styles.navLink} end>
-                Блог
-              </NavLink>
+                <NavLink to="/partners" className={styles.navLink} end>
+                  Наши партнёры
+                </NavLink>
+            ),
+          },
+        },
+        {
+          path: "press",
+          element: <Press />,
+          handle: {
+            crumb: () => (
+                <NavLink to="/press" className={styles.navLink} end>
+                  Пресс центр
+                </NavLink>
+            ),
+          },
+        },
+        {
+          path: "questions",
+          element: <Questions />,
+          handle: {
+            crumb: () => (
+                <NavLink to="/questions" className={styles.navLink} end>
+                  Вопросы и Ответы
+                </NavLink>
             ),
           },
         },

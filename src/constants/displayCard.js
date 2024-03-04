@@ -1,9 +1,9 @@
 
 export const displayCards = (isPageName,data,length) => {
   const productCardsInHomePage =
-    data?.length > length ? data?.slice(0, length) : data;
+      data?.length > length ? data?.slice(0, length) : data;
   if (isPageName) {
-    return productCardsInHomePage 
+    return productCardsInHomePage
   } else {
     return data;
   }

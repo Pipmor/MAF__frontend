@@ -66,7 +66,7 @@ const Form = () => {
 
           <Button onClick={handleButtonClick} className="button">
             {showSpinner && <Spinner />}
-            <span style={{ color: showSpinner && "white" }}>
+            <span style={{ color: showSpinner && "black" }}>
             {showSpinner ? "Загрузка..." : "Оставить заявку"}
           </span>
           </Button>

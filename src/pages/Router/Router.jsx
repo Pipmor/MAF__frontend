@@ -7,12 +7,11 @@ import About from "../About/About.jsx";
 import Press from "../Press/Press.jsx";
 import Questions from "../Questions/Questions.jsx";
 import Layout from "../../components/Layout/Layout.jsx";
-import { getServiceById } from "../../api/getServiceById.js";
 import styles from "../../components/Breadcrumbs/Breadcrumbs.module.css";
-import Services from "../Services/Services.jsx";
 import ErrorPage from "../ErrorPage/ErrorPage.jsx";
 import { getProductById } from "../../api/getProductById.js";
 import DetailPage from "../DetailPage/DetailPage.jsx";
+import Services from "../Services/Services.jsx";
 
 
 const Router = () => {
@@ -31,30 +30,6 @@ const Router = () => {
       },
       children: [
         { index: true, element: <Home /> },
-
-        {
-          path: "services",
-          element: <Services />,
-          handle: {
-            crumb: () => (
-              <NavLink to="/services" className={styles.navLink} end>
-                Услуги
-              </NavLink>
-            ),
-          },
-          children: [
-            {
-              path: ":name",
-              element: <DetailPage />,
-              loader: getServiceById,
-              handle: {
-                crumb: (data) => (
-                  <span className={styles.span}>{data.title}</span>
-                ),
-              },
-            },
-          ],
-        },
 
         {
           path: "products",
@@ -78,6 +53,17 @@ const Router = () => {
               },
             },
           ],
+        },
+        {
+          path: "services",
+          element: <Services/>,
+          handle: {
+            crumb: () => (
+                <NavLink to="/services" className={styles.navLink} end>
+                  Услуги
+                </NavLink>
+            ),
+          },
         },
         {
           path: "partners",

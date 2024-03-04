@@ -1,13 +1,18 @@
-
-import ServicesBlock from "../../components/ServicesBlock/ServicesBlock";
 import Hero from "../../components/Video/Video.jsx"
+import Carusel from "../../components/Carusel/Carusel.jsx";
+import ReusableSlider from "../../components/Slider/Slider.jsx";
+import TwoProduct from "../../components/TwoProduct/TwoProduct.jsx";
+
+
 
 const Home = () => {
 
   return (
     <>
-      <Hero />
-      <ServicesBlock isHomePage />
+        <Hero />
+        <TwoProduct/>
+        <Carusel/>
+        <ReusableSlider/>
     </>
   );
 };

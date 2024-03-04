@@ -1,5 +1,5 @@
 import { Outlet, useParams } from "react-router-dom";
-import ServicesBlock from "../../components/ServicesBlock/ServicesBlock";
+import Service from "../../components/Service/Service.jsx";
 
 const Services = () => {
   const params = useParams();
@@ -7,7 +7,7 @@ const Services = () => {
 
   return (
     <>
-      <ServicesBlock />
+      <Service/>
     </>
   );
 };

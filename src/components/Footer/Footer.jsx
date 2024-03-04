@@ -13,7 +13,7 @@ const linkList = [
 
 const Footer = () => {
   return (
-      <footer className={styles.footer}>
+      <footer className={styles. footer}>
         <div className="container">
           <div className={styles.flexContainer}>
             <Link to="/" className={styles.logo}>

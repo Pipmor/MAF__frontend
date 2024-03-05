@@ -2,25 +2,43 @@
   position: sticky;
   top: 0;
   width: 100%;
-  color: #26B9A8;
+  color: #26b9a8;
   z-index: 20;
   box-shadow: none;
 }
 
 .topHeaderWrapper {
   position: relative;
-  background-color: #26B9A8;
+  background-color: #26b9a8;
   z-index: 40;
 }
 
 .topHeader {
-  height: 39px;
+  position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  font-size: 18px;
+  justify-content: center;
+  padding: 6px 0;
   color: #efefef;
-  position: relative;
+}
+
+.contacts {
+  position: absolute;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.email {
+  display: block;
+}
+.tel {
+  display: block;
+  padding: 4px 8px;
+  color: #26b9a8;
+  background-color: #fff;
+  border-radius: 20px;
 }
 
 .separator {

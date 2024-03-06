@@ -1,0 +1,38 @@
+.product {
+  display: flex;
+  padding: 16px 32px 16px 16px;
+  border-radius: 20px;
+  background-color: #26b9a8;
+  color: white;
+}
+
+.product:nth-child(2) {
+  background-color: #feb701;
+}
+
+.img {
+  height: 250px;
+}
+
+.text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin-right: auto;
+  border-radius: 25px;
+  border: 1px solid white;
+  gap: 2px;
+}

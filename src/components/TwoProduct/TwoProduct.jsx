@@ -15,6 +15,7 @@ const TwoProductCards = () => {
                 key={index}
                 title={prod.name}
                 image={prod.image}
+                path={prod.link}
               />
             );
           })}

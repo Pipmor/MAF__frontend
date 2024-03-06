@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Arrow } from "./Arrow";
 import style from "./Product.module.css";
 
-export const ProductComponent = ({ title, image, path, color }) => {
+export const ProductComponent = ({ title, image, path }) => {
   return (
     <div className={style.product}>
       <img src={image} alt="image" className={style.img} />

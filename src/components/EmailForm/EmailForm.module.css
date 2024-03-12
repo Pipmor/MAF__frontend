@@ -1,0 +1,124 @@
+/* Удалены стили для модальной части */
+.inputContainer,
+.labeledTextarea {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Распределяем между формой и изображением */
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.formWrapper {
+  max-width: 400px;
+  border-radius: 20px;
+  width: 100%;
+}
+
+.formAndImageContainer {
+  display: grid;
+  grid-template-columns: 1fr; /* Один столбец */
+  grid-gap: 20px;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 400px;
+  grid-gap: 20px;
+}
+
+.imageWrapper {
+  display: grid;
+  place-items: center;
+}
+
+.questionImage {
+  max-width: 100%;
+  height: auto;
+}
+
+.labeledInput span,
+.labeledTextarea span {
+  position: absolute;
+  color: var(--grey-700-text);
+  font-size: 14px;
+}
+
+.labeledInput span {
+  right: 20px;
+  top: 7%;
+}
+
+.labeledTextarea {
+  height: 15.8em;
+}
+
+.labeledTextarea span {
+  bottom: 12px;
+  right: 20px;
+}
+
+.errorText {
+  color: red;
+  font-size: 15px;
+  height: 1.6em;
+  margin: 0 0 10px 1em;
+}
+
+.button {
+  justify-self: center;
+}
+
+@media screen and (max-width: 800px) {
+  .form,
+  .modalForm {
+    grid-row-gap: 1.5em;
+  }
+
+  .button {
+    grid-column: 1 / -1;
+  }
+
+  .labeledTextarea {
+    height: 150px;
+    margin-top: -1em;
+  }
+}
+
+.requiredFieldsText {
+  margin-top: 10px;
+  margin-right: 5px;
+  font-size: 12px;
+  color: var(--grey-700-text);
+}
+
+.container {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
+.formWrapper {
+  max-width: 400px;
+  width: 100%;
+}
+
+.imageWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.questionImage {
+  max-width: 100%;
+  height: auto;
+  margin-left: 20px;
+}

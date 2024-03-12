@@ -1,7 +1,7 @@
 import Hero from "../../components/Video/Video.jsx"
-import Carusel from "../../components/Carusel/Carusel.jsx";
 import ReusableSlider from "../../components/Slider/Slider.jsx";
 import TwoProduct from "../../components/TwoProduct/TwoProduct.jsx";
+import ReusableCarousel from "../../components/ReusableCarousel/ReusableCarousel.jsx";
 
 
 
@@ -11,8 +11,9 @@ const Home = () => {
     <>
         <Hero />
         <TwoProduct/>
-        <Carusel/>
+        <ReusableCarousel dots="true" />
         <ReusableSlider/>
+
     </>
   );
 };

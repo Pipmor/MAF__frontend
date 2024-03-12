@@ -1,7 +1,7 @@
 import styles from "./MobileHeader.module.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import MobileMenu from "./MobileMenu/MobileMenu";
+import MobileMenu from "./MobileMenu/MobileMenu.jsx";
 
 const MobileHeader = ({ linkList }) => {
   const [isMenuOpen, setMenuOpen] = useState(false);

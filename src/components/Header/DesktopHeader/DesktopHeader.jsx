@@ -2,7 +2,7 @@ import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import useSWR from "swr";
 // import { useModal } from "../../Modal/ModalContext";
-import { getContacts } from "../../../../../../MAF__frontend-main/src/api/getContacts.js";
+import { getContacts } from "../../../api/getContacts.js";
 import styles from "./DesktopHeader.module.css";
 import { Search } from "../../Search/Search.jsx";
 

@@ -2,8 +2,8 @@ import React, { useCallback, useState } from "react";
 import styles from "./Form.module.css";
 import Input from "../Input/Input";
 import Button from "../UI/Button/Button";
-import PropTypes from "prop-types";
 import Spinner from "../Spinner/Spinner";
+import submitFormData from "../../api/postFormData.js"; // Импортируем функцию отправки данных
 
 const Form = () => {
   const [userEmail, setUserEmail] = useState("");
@@ -34,7 +34,16 @@ const Form = () => {
       return;
     }
 
-    setShowSpinner(false);
+    // Отправка данных
+    try {
+      await submitFormData({ email: userEmail }); // Вызов функции отправки данных
+      alert("Данные успешно отправлены!"); // Ваше сообщение об успешной отправке
+    } catch (error) {
+      console.error("Ошибка при отправке данных:", error); // Обработка ошибок
+      alert("Произошла ошибка при отправке данных. Пожалуйста, попробуйте снова позже."); // Ваше сообщение об ошибке
+    } finally {
+      setShowSpinner(false);
+    }
   };
 
   return (
@@ -69,8 +78,4 @@ const Form = () => {
   );
 };
 
-Form.propTypes = {
-  isModal: PropTypes.bool,
-};
-
-export default React.memo(Form);
+export default Form;

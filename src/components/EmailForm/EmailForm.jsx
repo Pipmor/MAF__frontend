@@ -1,10 +1,11 @@
 import React, { useCallback, useState } from "react";
 import styles from "./EmailForm.module.css";
-import Input from "../../../../../life_print(exmaple 2.0)/life_print-frontend/src/components/Input/Input.jsx";
-import Button from "../../../../../life_print(exmaple 2.0)/life_print-frontend/src/components/UI/Button/Button.jsx";
+import Input from "../Input/Input.jsx";
+import Button from "../UI/Button/Button.jsx";
 import PropTypes from "prop-types";
-import Spinner from "../../../../../life_print(exmaple 2.0)/life_print-frontend/src/components/Spinner/Spinner.jsx";
+import Spinner from "../Spinner/Spinner.jsx";
 import QuestionImage from "../../assets/images/Question.png";
+import postEmailData from "../../api/postEmailData.js";
 
 import {
   initialErrorState,
@@ -27,8 +28,6 @@ const EmailForm = ({ isModal }) => {
   const [modalMessage, setModalMessage] = useState({});
   const [showSpinner, setShowSpinner] = useState(false);
 
-  const { userName, userPhone, userEmail, userComment } = formState;
-
   const openModal = useCallback(() => setShowModal(true), []);
   const closeModal = useCallback(() => setShowModal(false), []);
 
@@ -37,12 +36,9 @@ const EmailForm = ({ isModal }) => {
 
     setEmptyFields((prevEmptyFields) => ({
       ...prevEmptyFields,
-      [name]: value.trim()
-          ? ""
-          : name === "userName"
-              ? emptyNameError
-              : emptyPhoneError,
+      [name]: value.trim() ? "" : name === "userName" ? emptyNameError : emptyPhoneError,
     }));
+
     if (name === "userName" || name === "userEmail") {
       const { regex, errorMessage } = inputValidation[name];
       setValidationErrors((prevErrors) => ({
@@ -94,67 +90,24 @@ const EmailForm = ({ isModal }) => {
     }));
   }, []);
 
-  const handleInputBlur = ({ target: { name, value } }) => {
-    setEmptyFields((prevEmptyFields) => ({
-      ...prevEmptyFields,
-      [name]: value.trim()
-          ? ""
-          : name === "userName"
-              ? emptyNameError
-              : emptyPhoneError,
-    }));
-    setOnBlurInput((prevOnBlurInput) => ({
-      ...prevOnBlurInput,
-      [name]: true,
-    }));
-  };
-
-  const handleInputFocus = useCallback((e) => {
-    if (e.target.value === "") {
-      setFormState((prevFormState) => ({
-        ...prevFormState,
-        userPhone: "+996 ",
-      }));
-    }
-  }, []);
-
-  const handleButtonClick = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    setEmptyFields({
-      userName: userName.trim() ? "" : emptyNameError,
-      userPhone: userPhone.trim() ? "" : emptyPhoneError,
-    });
-
-    setOnBlurInput({
-      userName: true,
-      userPhone: true,
-      userEmail: true,
-    });
-    if (
-        !(
-            e.currentTarget.form.checkValidity() &&
-            !validationErrors.userName &&
-            !validationErrors.userPhone
-        )
-    )
-      return;
-    setShowSpinner(true);
-    const formDataToSend = {
-      name: userName,
-      phone: userPhone.replace(/\s/g, ""),
-      email: userEmail,
-      comment: userComment,
-    };
-
     try {
-      const response = await submitFormData(formDataToSend);
+      setShowSpinner(true);
+      const response = await postEmailData({
+        name: formState.userName,
+        phone: formState.userPhone.replace(/\s/g, ""),
+        email: formState.userEmail,
+        questions: formState.userComment,
+      });
       openModal();
-      setModalMessage(SUCCESS_MESSAGE);
+      setModalMessage({ type: "success", text: "Данные успешно отправлены!" });
       setFormState(initialFormState);
     } catch (error) {
+      console.error("Ошибка при отправке данных:", error);
       openModal();
-      setModalMessage(ERROR_MESSAGE);
+      setModalMessage({ type: "error", text: "Произошла ошибка при отправке данных." });
     } finally {
       setShowSpinner(false);
     }
@@ -163,108 +116,91 @@ const EmailForm = ({ isModal }) => {
   return (
       <div className={styles.container}>
         <div className={styles.formWrapper}>
-          {showModal && (
-              <MessageModal message={modalMessage} onClose={closeModal} />
-          )}
-          <form
-              className={`${styles.form} ${isModal ? styles.modalForm : ""}`}
-              onSubmit={handleButtonClick}
-          >
-            <div
-                className={`${styles.inputContainer} ${
-                    isModal ? styles.modalInputContainer : ""
-                }`}
-            >
-              <div>
-                <div className={styles.labeledInput}>
-                  <Input
-                      value={userName}
-                      id="userName"
-                      name="userName"
-                      placeholder="Имя*"
-                      required
-                      maxLength={50}
-                      label={`${userName.length}/50`}
-                      onChange={handleInputChange}
-                      onBlur={handleInputBlur}
-                      border={
-                          onBlurInput.userName &&
-                          (emptyFields.userName || validationErrors.userName) &&
-                          errorBorderColor
-                      }
-                  />
-                </div>
-                <p className={styles.errorText}>
-                  {(onBlurInput.userName &&
-                          (emptyFields.userName || validationErrors.userName)) ||
-                      ""}
-                </p>
-              </div>
-              <div>
+          <form onSubmit={handleSubmit}>
+            <div>
+              <div className={styles.labeledInput}>
                 <Input
-                    value={formState.userEmail}
-                    id="userEmail"
-                    type="email"
-                    name="userEmail"
-                    placeholder="Электронная почта*"
-                    onChange={handleInputChange}
-                    onBlur={handleInputBlur}
-                    border={
-                        !formState.userEmail ||
-                        !onBlurInput.userEmail ||
-                        (validationErrors.userEmail && errorBorderColor)
-                    }
-                />
-                <p className={styles.errorText}>
-                  {!userEmail ||
-                      !onBlurInput.userEmail ||
-                      validationErrors.userEmail}
-                </p>
-              </div>
-              <div>
-                <Input
-                    value={formState.userPhone}
-                    id="userPhone"
-                    type="phone"
-                    name="userPhone"
-                    placeholder="Номер телефона"
+                    value={formState.userName}
+                    id="userName"
+                    name="userName"
+                    placeholder="Имя*"
                     required
+                    maxLength={50}
+                    label={`${formState.userName.length}/50`}
                     onChange={handleInputChange}
-                    onBlur={handleInputBlur}
-                    onFocus={handleInputFocus}
+                    onBlur={handleInputChange}
                     border={
-                        onBlurInput.userPhone &&
-                        (emptyFields.userPhone || validationErrors.userPhone) &&
+                        onBlurInput.userName &&
+                        (emptyFields.userName || validationErrors.userName) &&
                         errorBorderColor
                     }
                 />
-                <p className={styles.errorText}>
-                  {(onBlurInput.userPhone &&
-                          (emptyFields.userPhone || validationErrors.userPhone)) ||
-                      ""}
-                </p>
               </div>
+              <p className={styles.errorText}>
+                {(onBlurInput.userName &&
+                        (emptyFields.userName || validationErrors.userName)) ||
+                    ""}
+              </p>
             </div>
-
+            <div>
+              <Input
+                  value={formState.userEmail}
+                  id="userEmail"
+                  type="email"
+                  name="userEmail"
+                  placeholder="Электронная почта*"
+                  onChange={handleInputChange}
+                  onBlur={handleInputChange}
+                  border={
+                      !formState.userEmail ||
+                      !onBlurInput.userEmail ||
+                      (validationErrors.userEmail && errorBorderColor)
+                  }
+              />
+              <p className={styles.errorText}>
+                {!formState.userEmail ||
+                    !onBlurInput.userEmail ||
+                    validationErrors.userEmail}
+              </p>
+            </div>
+            <div>
+              <Input
+                  value={formState.userPhone}
+                  id="userPhone"
+                  type="phone"
+                  name="userPhone"
+                  placeholder="Номер телефона"
+                  required
+                  onChange={handleInputChange}
+                  onBlur={handleInputChange}
+                  onFocus={handleInputChange}
+                  border={
+                      onBlurInput.userPhone &&
+                      (emptyFields.userPhone || validationErrors.userPhone) &&
+                      errorBorderColor
+                  }
+              />
+              <p className={styles.errorText}>
+                {(onBlurInput.userPhone &&
+                        (emptyFields.userPhone || validationErrors.userPhone)) ||
+                    ""}
+              </p>
+            </div>
             <div className={styles.labeledTextarea}>
               <Input
-                  value={userComment}
+                  value={formState.userComment}
                   id="userComment"
                   type="textarea"
                   name="userComment"
                   placeholder="Вопрос"
                   maxLength={300}
-                  label={`${userComment.length}/300`}
+                  label={`${formState.userComment.length}/300`}
                   onChange={handleInputChange}
               />
             </div>
-
-
-            <p className={styles.requiredFieldsText}>
-              * Поля обязательны к заполнению
-            </p>
+            <p className={styles.requiredFieldsText}>* Поля обязательны к заполнению</p>
             <div className={styles.button}>
-              <Button onClick={handleButtonClick} className="button">
+              <Button onClick={handleSubmit} className="button">
                 {showSpinner && <Spinner />}
                 <span style={{ color: showSpinner && "white" }}>
                 {showSpinner ? "Загрузка..." : "Оставить заявку"}
@@ -274,11 +210,7 @@ const EmailForm = ({ isModal }) => {
           </form>
         </div>
         <div className={styles.imageWrapper}>
-          <img
-              src={QuestionImage}
-              alt="Question"
-              className={styles.questionImage}
-          />
+          <img src={QuestionImage} alt="Question" className={styles.questionImage} />
         </div>
       </div>
   );

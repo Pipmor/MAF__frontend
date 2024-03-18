@@ -27,7 +27,7 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <Router />
-  </React.StrictMode>
+    <React.StrictMode>
+        <Router />
+    </React.StrictMode>
 );

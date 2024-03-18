@@ -56,7 +56,7 @@
 
 .container {
   max-width: calc(
-    var(--container-max-width) - (2 * var(--container-inline-padding))
+          var(--container-max-width) - (2 * var(--container-inline-padding))
   );
   padding-inline: var(--container-inline-padding);
   margin-inline: auto;

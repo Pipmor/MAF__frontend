@@ -1,8 +1,8 @@
 import React from "react";
-import PageBlock from "../PageBlock/PageBlock";
+import PageBlock from "../PageBlock/PageBlock.jsx";
 import styles from "./TwoProduct.module.css";
-import { data } from "./config/Data";
-import { ProductComponent } from "./config/ProductComponent";
+import { data } from "./config/Data.js";
+import { ProductComponent } from "./config/ProductComponent.jsx";
 
 const TwoProductCards = () => {
   return (

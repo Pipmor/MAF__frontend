@@ -4,25 +4,22 @@ import Input from "../Input/Input";
 import Button from "../UI/Button/Button";
 import PropTypes from "prop-types";
 import Spinner from "../Spinner/Spinner";
-import submitFormData from "../../api/postFormData";
-import { errorBorderColor } from "./formConstants.js";
 
 const Form = () => {
   const [userEmail, setUserEmail] = useState("");
-  const [validationErrors, setValidationErrors] = useState("");
   const [onBlurInput, setOnBlurInput] = useState(false);
   const [showSpinner, setShowSpinner] = useState(false);
+  const [validationErrors, setValidationErrors] = useState("");
 
   const handleInputChange = useCallback(({ target: { value } }) => {
-    // Ваша валидация для электронной почты
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    setValidationErrors(regex.test(value) ? "" : "Некорректный адрес эл.почты");
-
     setUserEmail(value);
   }, []);
 
   const handleInputBlur = () => {
     setOnBlurInput(true);
+
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    setValidationErrors(regex.test(userEmail) ? "" : "Некорректный email");
   };
 
   const handleButtonClick = async (e) => {
@@ -30,26 +27,20 @@ const Form = () => {
 
     setShowSpinner(true);
 
-    try {
-      // Отправка данных на сервер
-      await submitFormData({ email: userEmail });
-
-      // Успешная отправка
-      console.log("Данные успешно отправлены");
-    } catch (error) {
-      // Обработка ошибки при отправке
-      console.error("Ошибка при отправке данных:", error);
-    } finally {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!regex.test(userEmail)) {
+      setValidationErrors("Некорректный email");
       setShowSpinner(false);
+      return;
     }
+
+    setShowSpinner(false);
   };
 
   return (
       <form className={styles.form}>
         <div className={styles.flexContainer}>
-          <p className={styles.label}>
-            Подписаться на новости
-          </p>
+          <p className={styles.label}>Подписаться на новости</p>
 
           <Input
               value={userEmail}
@@ -59,10 +50,9 @@ const Form = () => {
               placeholder="Электронная почта"
               onChange={handleInputChange}
               onBlur={handleInputBlur}
-              border={onBlurInput && (userEmail.trim() || validationErrors) && errorBorderColor}
+              border={onBlurInput && userEmail.trim() && validationErrors && styles.errorBorderColor}
               className={styles.email}
           />
-
 
           <Button onClick={handleButtonClick} className="button">
             {showSpinner && <Spinner />}
@@ -73,7 +63,7 @@ const Form = () => {
         </div>
 
         <p className={styles.errorText}>
-          {(onBlurInput && (userEmail.trim() || validationErrors)) || ""}
+          {(onBlurInput && userEmail.trim() && validationErrors) || ""}
         </p>
       </form>
   );

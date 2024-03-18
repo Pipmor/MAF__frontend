@@ -1,4 +1,4 @@
-import PageBlock from "../PageBlock/PageBlock";
+import PageBlock from "../PageBlock/PageBlock.jsx";
 import styles from "./ProductsBlock.module.css";
 import ProductCard from "../ProductCard/ProductCard.jsx";
 import { Link } from "react-router-dom";

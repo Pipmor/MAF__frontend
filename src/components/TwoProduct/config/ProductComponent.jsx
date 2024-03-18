@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Arrow } from "./Arrow";
+import { Arrow } from "./Arrow.jsx";
 import style from "./Product.module.css";
 
 export const ProductComponent = ({ title, image, path }) => {

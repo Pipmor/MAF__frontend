@@ -1,10 +1,10 @@
-import styles from "../../../../../MAF__frontend-main/src/components/ContactsBlock/ContactsBlock.module.css";
-import PageBlock from "../../../../../MAF__frontend-main/src/components/PageBlock/PageBlock.jsx";
-import ContactCard from "../../../../../MAF__frontend-main/src/components/ContactsBlock/ContactCard/ContactCard.jsx";
-import phoneIcon from "../../../../../MAF__frontend-main/src/assets/icons/contact_icons/phone.svg";
-import locationIcon from "../../../../../MAF__frontend-main/src/assets/icons/contact_icons/location.svg";
-import mailIcon from "../../../../../MAF__frontend-main/src/assets/icons/contact_icons/mail.svg";
-import timeIcon from "../../../../../MAF__frontend-main/src/assets/icons/contact_icons/time.svg";
+import styles from "../ContactsBlock/ContactsBlock.module.css";
+import PageBlock from "../PageBlock/PageBlock.jsx";
+import ContactCard from "../ContactsBlock/ContactCard/ContactCard.jsx";
+import phoneIcon from "../../assets/icons/contact_icons/phone.svg";
+import locationIcon from "../../assets/icons/contact_icons/location.svg";
+import mailIcon from "../../assets/icons/contact_icons/mail.svg";
+import timeIcon from "../../assets/icons/contact_icons/time.svg";
 // import { getContacts } from "../../api/getContacts"; // временно закомментировали вызов API
 
 // Мокап данных, замените на вызов API, когда будет готово

@@ -3,6 +3,7 @@ import { Arrow } from "./Arrow.jsx";
 import style from "./Product.module.css";
 
 export const ProductComponent = ({ title, image, path }) => {
+  console.log("image>>>", image);
   return (
     <div className={style.product}>
       <img src={image} alt="image" className={style.img} />

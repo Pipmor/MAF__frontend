@@ -4,7 +4,7 @@ import img2 from "../../../assets/images/serviceImages/productImage2.png";
 export const data = [
   {
     name: "Ветеринарные препараты",
-    link: "/",
+    link: "/products",
     image: img1,
   },
   {

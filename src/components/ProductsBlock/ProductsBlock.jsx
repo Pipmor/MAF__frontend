@@ -7,33 +7,31 @@ import useSWRImmutable from "swr/immutable";
 import { getProductsData } from "../../api/getProductsData.js";
 import { displayCards } from "../../constants/displayCard.js";
 
+import data from "./products.db.json";
+
 const ProductsBlock = ({ isHomePage }) => {
   const { data: productsData } = useSWRImmutable("/products/", getProductsData);
 
   return (
-      <PageBlock
-          heading="Наша продукция"
-          subHeading="Широкий выбор, высокое качество: Наш ассортимент для ваших потребностей"
-          className="wrapper"
-      >
-        <div className={styles.container}>
-          <div className={styles.wrapperCard}>
-            {displayCards(isHomePage, productsData, 16) &&
-                displayCards(isHomePage, productsData, 16).map((el) => (
-                    <ProductCard key={el.id} {...el} />
-                ))}
-          </div>
-          <div className={styles.button_wrapper}>
-            {isHomePage && (
-                <Link to={"/products"}>
-                  <Button className="button" withArrow>
-                    Смотреть все
-                  </Button>
-                </Link>
-            )}
-          </div>
+    <PageBlock heading="Продукция" className="wrapper">
+      <div className={styles.container}>
+        <div className={styles.wrapperCard}>
+          {displayCards(isHomePage, data.products, 16) &&
+            displayCards(isHomePage, data.products, 16).map((el) => (
+              <ProductCard key={el.id} {...el} />
+            ))}
         </div>
-      </PageBlock>
+        <div className={styles.button_wrapper}>
+          {isHomePage && (
+            <Link to={"/products"}>
+              <Button className="button" withArrow>
+                Смотреть все
+              </Button>
+            </Link>
+          )}
+        </div>
+      </div>
+    </PageBlock>
   );
 };
 export default ProductsBlock;

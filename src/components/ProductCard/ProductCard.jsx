@@ -15,6 +15,10 @@ const ProductCard = ({ title, discription, img, slug, types }) => {
         </div>
         <AnimalTypsBlock types={types} />
       </div>
+
+      
+
+
     </Link>
   );
 };

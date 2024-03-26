@@ -2,6 +2,28 @@
     display: flex;
     gap: 20px;
     flex-direction: column;
+    position: relative;
+}
+.wrapper{
+    text-align: start;
+}
+.selector_wrapper{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.selector_wrapper p{
+    color: #40be99;
+}
+.selector{
+    width: 200px;
+    height: 25px;
+    padding: 5px;
+    border-radius: 10px;
 }
 
 .wrapperCard{

@@ -41,7 +41,17 @@ const ProductsBlock = ({ isHomePage }) => {
             )}
           </div>
         </div>
-      </PageBlock>
+        <div className={styles.button_wrapper}>
+          {isHomePage && (
+            <Link to={"/products"}>
+              <Button className="button" withArrow>
+                Смотреть все
+              </Button>
+            </Link>
+          )}
+        </div>
+      </div>
+    </PageBlock>
   );
 };
 export default ProductsBlock;

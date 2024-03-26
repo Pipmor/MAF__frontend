@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import styles from "./ProductCard.module.css";
 import { AnimalTypsBlock } from "../AnimalTypsBlock/AnimalTypsBlock";
 
-<<<<<<< products
 const ProductCard = ({ title, discription, img, slug, types }) => {
   return (
     <Link to={`/products/${slug}`}>

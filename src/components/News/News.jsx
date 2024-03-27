@@ -4,16 +4,17 @@ import styles from './News.module.css';
 import newsData from './NewsData.js';
 import PageBlock from "../PageBlock/PageBlock.jsx";
 
+
 const NewsPage = () => {
   return (
       <PageBlock>
         <div className={styles.newsContainer}>
           <div className={styles.leftColumn}>
             <ul>
-              <li><Link to="/link1">События</Link></li>
+              <li><Link to="/news">События</Link></li>
               <li><Link to="/link2">Публикации</Link></li>
               <li><Link to="/link3">Новинки</Link></li>
-              <li><Link to="/link3">Календарь выстовок</Link></li>
+              <li><Link to="/calendar">Календарь</Link></li>
               <li><Link to="/link3">Видео</Link></li>
             </ul>
           </div>

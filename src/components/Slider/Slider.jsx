@@ -11,7 +11,7 @@ const ReusableSlider = () => {
   const { data } = useSWR("/our_customer_list", getCustomersList);
 
   return (
-    <PageBlock heading="Наши клиенты" subHeading="В доверии лежит успех: Наши клиенты – наше ценное партнерство">
+    <PageBlock heading="Наши партнёры" >
       <div className={styles.wrapperContainer}>
       <div className={styles.logos_slide}>
         {data && data.map((el) => (

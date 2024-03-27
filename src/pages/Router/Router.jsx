@@ -12,6 +12,8 @@ import ErrorPage from "../ErrorPage/ErrorPage.jsx";
 import { getProductById } from "../../api/getProductById.js";
 import DetailPage from "../DetailPage/DetailPage.jsx";
 import Services from "../Services/Services.jsx";
+import CalendarPage from "../../components/Сalendar/Calendar.jsx";
+import NewsPage from "../../components/News/News.jsx";
 
 
 const Router = () => {
@@ -83,6 +85,28 @@ const Router = () => {
             crumb: () => (
                 <NavLink to="/press" className={styles.navLink} end>
                   Пресс центр
+                </NavLink>
+            ),
+          },
+        },
+        {
+          path: "news", // Путь к странице новостей
+          element: <NewsPage />, // Компонент страницы новостей
+          handle: {
+            crumb: () => (
+                <NavLink to="/news" className={styles.navLink} end>
+                  Новости
+                </NavLink>
+            ),
+          },
+        },
+        {
+          path: "calendar", // Путь к странице календаря
+          element: <CalendarPage />, // Компонент страницы календаря
+          handle: {
+            crumb: () => (
+                <NavLink to="/calendar" className={styles.navLink} end>
+                  Календарь
                 </NavLink>
             ),
           },

@@ -1,0 +1,49 @@
+.calendarContainer {
+    display: flex;
+}
+
+.leftColumn {
+    margin-top: 70px;
+    padding: 30px;
+}
+
+.leftColumn li {
+    margin-bottom: 20px;
+    color: #26B9A8;
+}
+
+.calendarTable {
+    position: relative;
+    padding: 40px;
+    width: 60em;
+    height: 100%;
+    border: 2px solid #26B9A8;
+    border-radius: 20px;
+}
+
+.calendarTable thead th {
+    width: 17em;
+    padding: 10px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: left;
+    color: #444441;
+    border-bottom: 2px solid #716561;
+    margin-bottom: 10em;
+}
+
+.calendarTable tbody td {
+    padding: 10px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #444441;
+    border-bottom: 1px solid #716561;
+}
+
+
+
+
+
+
+

@@ -6,7 +6,7 @@ import styles from "./ContactCard.module.css";
  * @param {string} ContactCardProps.iconURL
  * @param {string|string[]} ContactCardProps.content
  */
-const ContactCard = ({ title, iconURL, content }) => {
+const ContactCard = ({ title, subtitle, iconURL, content }) => {
   let cardContent = [];
   if (Array.isArray(content)) {
     cardContent = [...content];
@@ -22,7 +22,10 @@ const ContactCard = ({ title, iconURL, content }) => {
         <img src={iconURL} alt="icon" />
         <span>{title}</span>
       </h3>
-      <ul className={styles.contactList}>
+      <h5 className={styles.subtitle}>
+        <p>{subtitle}</p>
+      </h5>
+        <ul className={styles.contactList}>
         {cardContent.map((item, index) => (
           <li className={styles.contactLine} key={index}>
             {<p>{item}</p> || <p className={styles.skeleton} />}

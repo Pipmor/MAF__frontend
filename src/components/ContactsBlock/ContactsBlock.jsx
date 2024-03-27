@@ -1,59 +1,66 @@
 import styles from "../ContactsBlock/ContactsBlock.module.css";
 import PageBlock from "../PageBlock/PageBlock.jsx";
 import ContactCard from "../ContactsBlock/ContactCard/ContactCard.jsx";
-import phoneIcon from "../../assets/icons/contact_icons/phone.svg";
-import locationIcon from "../../assets/icons/contact_icons/location.svg";
-import mailIcon from "../../assets/icons/contact_icons/mail.svg";
-import timeIcon from "../../assets/icons/contact_icons/time.svg";
-// import { getContacts } from "../../api/getContacts"; // временно закомментировали вызов API
+import phoneIcon from "../../assets/icons/contact_icons/phoneIcon.png";
+import locationIcon from "../../assets/icons/contact_icons/locationIcon.png";
+import mailIcon from "../../assets/icons/contact_icons/mailIcon.png";
+import personIcon from "../../assets/icons/contact_icons/personIcon.png";
+import map from "../../assets/images/map.png";
+import useSWR from "swr";
+import axiosPrint from "../../api/axiosPrint.js";
 
-// Мокап данных, замените на вызов API, когда будет готово
-const mockData = {
-  phone_number: "123-456-789",
-  phone_number2: "987-654-321",
-  phone_number3: "111-222-333",
-  email: "example@email.com",
-  working_hours: "9:00 AM - 5:00 PM",
-  address: "123 Main St, City"
+const fetcher = async (url) => {
+    try {
+        const response = await axiosPrint.get(url);
+        return response.data;
+    } catch (error) {
+        console.error("Ошибка при получении данных:", error);
+        throw error;
+    }
 };
 
 const ContactsBlock = () => {
-  // const { data } = useSWR("/contacts", getContacts); // временно закомментировали вызов API
-  // const phoneNumbers = [data?.phone_number]; // временно закомментировали вызов API
-  // data?.phone_number2 && phoneNumbers.push(data.phone_number2); // временно закомментировали вызов API
-  // data?.phone_number3 && phoneNumbers.push(data.phone_number3); // временно закомментировали вызов API
+    const { data: contacts, error } = useSWR("http://107.23.142.232/api/v1/blog/contact", fetcher);
 
-  // Временно использовали мокап данных
-  const phoneNumbers = [mockData?.phone_number];
-  mockData?.phone_number2 && phoneNumbers.push(mockData.phone_number2);
-  mockData?.phone_number3 && phoneNumbers.push(mockData.phone_number3);
+    if (error) {
+        return <div>Ошибка при загрузке контактов.</div>;
+    }
 
-  return (
-      <PageBlock heading="Контакты">
-        <ul className={styles.cardList}>
-          <ContactCard
-              title="Телефон"
-              iconURL={phoneIcon}
-              content={phoneNumbers}
-          />
-          <ContactCard
-              title="Электронная почта"
-              iconURL={mailIcon}
-              content={mockData?.email} /* временно использовали мокап данных */
-          />
-          <ContactCard
-              title="График работы"
-              iconURL={timeIcon}
-              content={mockData?.working_hours} /* временно использовали мокап данных */
-          />
-          <ContactCard
-              title="Адрес"
-              iconURL={locationIcon}
-              content={mockData?.address} /* временно использовали мокап данных */
-          />
-        </ul>
-      </PageBlock>
-  );
+    if (!contacts) {
+        return <div>Загрузка...</div>;
+    }
+
+    return (
+        <PageBlock heading="Контакты">
+            <ul className={styles.cardList}>
+                <ContactCard
+                    title=""
+                    subtitle="Электронная почта"
+                    iconURL={mailIcon}
+                    content={contacts[0].email}
+                />
+                <ContactCard
+                    title=""
+                    subtitle="Телефон"
+                    iconURL={phoneIcon}
+                    content={contacts[0].phone}
+                />
+                <ContactCard
+                    title=""
+                    subtitle="Адрес"
+                    iconURL={locationIcon}
+                    content={contacts[0].address}
+                />
+                <ContactCard
+                    title=""
+                    subtitle="Директор"
+                    iconURL={personIcon}
+                    content={contacts[0].owner}
+                />
+            </ul>
+            <img src={map} alt="Карта" className={styles.mapImage} />
+        </PageBlock>
+    );
 };
 
 export default ContactsBlock;

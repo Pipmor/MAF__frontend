@@ -14,6 +14,7 @@ import DetailPage from "../DetailPage/DetailPage.jsx";
 import Services from "../Services/Services.jsx";
 import CalendarPage from "../../components/Сalendar/Calendar.jsx";
 import NewsPage from "../../components/News/News.jsx";
+import EventsPage from "../../components/Events/Events.jsx";
 
 
 const Router = () => {
@@ -89,6 +90,18 @@ const Router = () => {
             ),
           },
         },
+        {
+          path: "events", 
+          element: <EventsPage />, 
+          handle: {
+            crumb: () => (
+                <NavLink to="/events" className={styles.navLink} end>
+                  События
+                </NavLink>
+            ),
+          },
+        },
+
         {
           path: "news", // Путь к странице новостей
           element: <NewsPage />, // Компонент страницы новостей

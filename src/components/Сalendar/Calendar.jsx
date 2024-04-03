@@ -9,7 +9,7 @@ const CalendarPage = () => {
             <div className={styles.calendarContainer}>
                 <div className={styles.leftColumn}>
                     <ul>
-                        <li><Link to="/link1">События</Link></li>
+                        <li><Link to="/events">События</Link></li>
                         <li><Link to="/link2">Публикации</Link></li>
                         <li><Link to="/link3">Новинки</Link></li>
                         <li><Link to="/link3">Календарь выстовок</Link></li>

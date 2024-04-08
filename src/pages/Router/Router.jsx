@@ -1,5 +1,4 @@
 import { createBrowserRouter, NavLink, RouterProvider } from "react-router-dom";
-import Partners from "../Partners/Partners.jsx";
 import Home from "../Home/Home.jsx";
 import Products from "../Products/Products.jsx";
 import Contacts from "../Contacts/Contacts.jsx";
@@ -15,6 +14,7 @@ import Services from "../Services/Services.jsx";
 import CalendarPage from "../../components/Сalendar/Calendar.jsx";
 import NewsPage from "../../components/News/News.jsx";
 import EventsPage from "../../components/Events/Events.jsx";
+import NewsVideo from "../../components/NewsVideo/NewsVideo.jsx";
 
 
 const Router = () => {
@@ -69,17 +69,6 @@ const Router = () => {
           },
         },
         {
-          path: "partners",
-          element: <Partners />,
-          handle: {
-            crumb: () => (
-                <NavLink to="/partners" className={styles.navLink} end>
-                  Наши партнёры
-                </NavLink>
-            ),
-          },
-        },
-        {
           path: "press",
           element: <Press />,
           handle: {
@@ -103,8 +92,8 @@ const Router = () => {
         },
 
         {
-          path: "news", // Путь к странице новостей
-          element: <NewsPage />, // Компонент страницы новостей
+          path: "news",
+          element: <NewsPage />,
           handle: {
             crumb: () => (
                 <NavLink to="/news" className={styles.navLink} end>
@@ -120,6 +109,17 @@ const Router = () => {
             crumb: () => (
                 <NavLink to="/calendar" className={styles.navLink} end>
                   Календарь
+                </NavLink>
+            ),
+          },
+        },
+        {
+          path: "newsvideo", // Путь к странице календаря
+          element: <NewsVideo />, // Компонент страницы календаря
+          handle: {
+            crumb: () => (
+                <NavLink to="/newsvideo" className={styles.navLink} end>
+                  Видео
                 </NavLink>
             ),
           },

@@ -6,7 +6,6 @@ const linkList = [
   { destination: "about", caption: "О компании" },
   { destination: "services", caption: "Услуги" },
   { destination: "products", caption: "Продукция" },
-  { destination: "partners", caption: "Наши партнёры" },
   { destination: "press", caption: "Пресс центр" },
   { destination: "questions", caption: "Вопросы и Ответы" },
   { destination: "contacts", caption: "Контакты" },

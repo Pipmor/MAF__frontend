@@ -12,10 +12,10 @@ const NewsPage = () => {
           <div className={styles.leftColumn}>
             <ul>
               <li><Link to="/events">События</Link></li>
-              <li><Link to="/link2">Публикации</Link></li>
+              <li><Link to="/news">Публикации</Link></li>
               <li><Link to="/link3">Новинки</Link></li>
               <li><Link to="/calendar">Календарь</Link></li>
-              <li><Link to="/link3">Видео</Link></li>
+              <li><Link to="/newsvideo">Видео</Link></li>
             </ul>
           </div>
           <div className={styles.cardColumn}>

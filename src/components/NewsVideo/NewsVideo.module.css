@@ -1,0 +1,63 @@
+.newsContainer {
+    display: grid;
+    grid-template-columns: 200px auto;
+    gap: 20px;
+}
+
+.leftColumn {
+    display: flex;
+    flex-direction: column;
+    margin-top: 70px;
+    padding: 30px;
+}
+
+.leftColumn ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.leftColumn li {
+    margin-bottom: 20px;
+    color: #26B9A8;
+}
+
+.cardColumn {
+    padding: 40px;
+}
+
+.cardColumn h2 {
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+.videoCardContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Две колонки */
+    gap: 20px;
+}
+
+.videoCard {
+    display: flex;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.videoCard img {
+    width: 200px; /* Ширина фотографии */
+    height: 200px; /* Высота фотографии */
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.videoText {
+    padding: 20px; /* Увеличим отступ для текста */
+}
+
+.videoText h5 {
+    color: #8A8A8A;
+}
+
+.videoText p {
+    margin-bottom: 10px;
+}

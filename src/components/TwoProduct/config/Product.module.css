@@ -2,6 +2,8 @@
   display: flex;
   padding: 16px 32px 16px 16px;
   border-radius: 20px;
+  width: 500px;
+  height: 282px;
   background-color: #26b9a8;
   color: white;
 }
@@ -19,11 +21,13 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  width: 153px;
   gap: 32px;
 }
 
 .title {
-  font-size: 28px;
+  font-size: 24px;
+  width: 148px;
   font-weight: 500;
 }
 

@@ -9,13 +9,13 @@ const TwoProductCards = () => {
     <PageBlock heading="Продукция">
       <div className={styles.container}>
         <div className={styles.wrapperCard}>
-          {data.map((prod, index) => {
-            return (
-              <ProductComponent
-                key={index}
-                title={prod.name}
-                image={prod.image}
-                path={prod.link}
+            {data.map((prod, index) => {
+                return (
+                    <ProductComponent
+                        key={index}
+                        title={prod.name}
+                        image={prod.image}
+                        path={prod.link}
               />
             );
           })}

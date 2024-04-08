@@ -1,8 +1,8 @@
 import { article } from "../../constants/article.js";
-import NewsPage from "../../components/News/News.jsx";
+import EventsPage from "../../components/Events/Events.jsx";
  
 const Press = () => {
-    return <NewsPage article={article} />;
+    return <EventsPage article={article} />;
   }; 
    
 export default Press;

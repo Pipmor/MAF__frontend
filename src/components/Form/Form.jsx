@@ -10,6 +10,7 @@ const Form = () => {
   const [onBlurInput, setOnBlurInput] = useState(false);
   const [showSpinner, setShowSpinner] = useState(false);
   const [validationErrors, setValidationErrors] = useState("");
+  const [showModal, setShowModal] = useState(false);
 
   const handleInputChange = useCallback(({ target: { value } }) => {
     setUserEmail(value);
@@ -37,13 +38,18 @@ const Form = () => {
     // Отправка данных
     try {
       await submitFormData({ email: userEmail }); // Вызов функции отправки данных
-      alert("Данные успешно отправлены!"); // Ваше сообщение об успешной отправке
+      setShowModal(true);
     } catch (error) {
       console.error("Ошибка при отправке данных:", error); // Обработка ошибок
       alert("Произошла ошибка при отправке данных. Пожалуйста, попробуйте снова позже."); // Ваше сообщение об ошибке
     } finally {
       setShowSpinner(false);
     }
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+    setUserEmail(""); // Сброс email после закрытия модального окна
   };
 
   return (
@@ -74,6 +80,18 @@ const Form = () => {
         <p className={styles.errorText}>
           {(onBlurInput && userEmail.trim() && validationErrors) || ""}
         </p>
+
+        {/* Модальное окно */}
+        {showModal && (
+            <div className={styles.modalBackdrop}>
+              <div className={styles.modalContent}>
+                <h2>Данные отправлены!</h2>
+                <Button onClick={closeModal}>
+                  Закрыть
+                </Button>
+              </div>
+            </div>
+        )}
       </form>
   );
 };

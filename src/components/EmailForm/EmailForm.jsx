@@ -25,7 +25,6 @@ const EmailForm = ({ isModal }) => {
   const [emptyFields, setEmptyFields] = useState(initialEmptyState);
   const [onBlurInput, setOnBlurInput] = useState(initialBlurState);
   const [showModal, setShowModal] = useState(false);
-  const [modalMessage, setModalMessage] = useState({});
   const [showSpinner, setShowSpinner] = useState(false);
 
   const openModal = useCallback(() => setShowModal(true), []);
@@ -71,23 +70,8 @@ const EmailForm = ({ isModal }) => {
         ...prevErrors,
         [name]: regex.test(finalValue) ? "" : errorMessage,
       }));
-
-      return;
     }
 
-    setFormState((prevFormState) => ({
-      ...prevFormState,
-      [name]: value,
-    }));
-
-    setFormState((prevFormState) => ({
-      ...prevFormState,
-      [name]: value,
-    }));
-    setFormState((prevFormState) => ({
-      ...prevFormState,
-      [name]: value.slice(0, maxLength),
-    }));
   }, []);
 
   const handleSubmit = async (e) => {
@@ -102,12 +86,9 @@ const EmailForm = ({ isModal }) => {
         questions: formState.userComment,
       });
       openModal();
-      setModalMessage({ type: "success", text: "Данные успешно отправлены!" });
       setFormState(initialFormState);
     } catch (error) {
       console.error("Ошибка при отправке данных:", error);
-      openModal();
-      setModalMessage({ type: "error", text: "Произошла ошибка при отправке данных." });
     } finally {
       setShowSpinner(false);
     }
@@ -129,17 +110,11 @@ const EmailForm = ({ isModal }) => {
                     label={`${formState.userName.length}/50`}
                     onChange={handleInputChange}
                     onBlur={handleInputChange}
-                    border={
-                        onBlurInput.userName &&
-                        (emptyFields.userName || validationErrors.userName) &&
-                        errorBorderColor
-                    }
+                    border={onBlurInput.userName && (emptyFields.userName || validationErrors.userName) && errorBorderColor}
                 />
               </div>
               <p className={styles.errorText}>
-                {(onBlurInput.userName &&
-                        (emptyFields.userName || validationErrors.userName)) ||
-                    ""}
+                {(onBlurInput.userName && (emptyFields.userName || validationErrors.userName)) || ""}
               </p>
             </div>
             <div>
@@ -151,16 +126,10 @@ const EmailForm = ({ isModal }) => {
                   placeholder="Электронная почта*"
                   onChange={handleInputChange}
                   onBlur={handleInputChange}
-                  border={
-                      !formState.userEmail ||
-                      !onBlurInput.userEmail ||
-                      (validationErrors.userEmail && errorBorderColor)
-                  }
+                  border={validationErrors.userEmail && errorBorderColor}
               />
               <p className={styles.errorText}>
-                {!formState.userEmail ||
-                    !onBlurInput.userEmail ||
-                    validationErrors.userEmail}
+                {validationErrors.userEmail && "Некорректный адрес электронной почты"}
               </p>
             </div>
             <div>
@@ -169,21 +138,15 @@ const EmailForm = ({ isModal }) => {
                   id="userPhone"
                   type="phone"
                   name="userPhone"
-                  placeholder="Номер телефона"
+                  placeholder="Номер телефона*"
                   required
                   onChange={handleInputChange}
                   onBlur={handleInputChange}
                   onFocus={handleInputChange}
-                  border={
-                      onBlurInput.userPhone &&
-                      (emptyFields.userPhone || validationErrors.userPhone) &&
-                      errorBorderColor
-                  }
+                  border={onBlurInput.userPhone && (emptyFields.userPhone || validationErrors.userPhone) && errorBorderColor}
               />
               <p className={styles.errorText}>
-                {(onBlurInput.userPhone &&
-                        (emptyFields.userPhone || validationErrors.userPhone)) ||
-                    ""}
+                {(onBlurInput.userPhone && (emptyFields.userPhone || validationErrors.userPhone)) || ""}
               </p>
             </div>
             <div className={styles.labeledTextarea}>
@@ -212,6 +175,17 @@ const EmailForm = ({ isModal }) => {
         <div className={styles.imageWrapper}>
           <img src={QuestionImage} alt="Question" className={styles.questionImage} />
         </div>
+        {showModal && (
+            <div className={styles.modalBackdrop}>
+              <div className={styles.modalContent}>
+                <h2>Данные отправлены!</h2>
+                <Button onClick={closeModal}>
+                  Закрыть
+                </Button>
+              </div>
+            </div>
+        )}
+        {showSpinner && <Spinner />}
       </div>
   );
 };

@@ -1,25 +1,25 @@
 import { useState } from "react";
+import useSWRImmutable from "swr/immutable";
+import { getWidget } from "../../api/getWidget.js";
 import chat from "./icons/chat.svg";
 import whatsapp from "./icons/whatsapp.svg";
 import telegram from "./icons/telegram.svg";
 import styles from "./Widget.module.css";
 
 const ChatIcon = ({ className, href, imgSrc }) => (
-  <a
-    className={className}
-    href={href}
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    <img src={imgSrc} alt="" />
-  </a>
+    <a
+        className={className}
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+      <img src={imgSrc} alt="Chat Icon" />
+    </a>
 );
 
 const Widget = () => {
+  const { data: contacts } = useSWRImmutable("http://107.23.142.232:80/api/v1/chat/chats/", getWidget); // Используем getWidget для получения данных
   const [isOpen, setIsOpen] = useState(false);
-  //FIX_ME
-  const tgName = "lifeprint2017";
-  const waNumber = "+996556204977".replace("+", "");
 
   const handleClick = () => {
     setIsOpen((prev) => !prev);
@@ -36,25 +36,23 @@ const Widget = () => {
   };
 
   return (
-    <div className={styles.fixedContainer}>
-      <div
-        className={`${styles.wrapper} ${isOpen ? styles.open : ""}`}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-      >
-        <ChatIcon
-          className={styles.telegram}
-          href={`https://t.me/${tgName}`}
-          imgSrc={telegram}
-        />
-        <ChatIcon
-          className={styles.whatsapp}
-          href={`https://wa.me/${waNumber}`}
-          imgSrc={whatsapp}
-        />
-        <img className={styles.chat} src={chat} alt="" onClick={handleClick} />
+      <div className={styles.fixedContainer}>
+        <div
+            className={`${styles.wrapper} ${isOpen ? styles.open : ""}`}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+        >
+          {contacts && contacts.map(contact => (
+              <ChatIcon
+                  key={contact.id}
+                  className={contact.id === 1 ? styles.whatsapp : styles.telegram}
+                  href={contact.chat_link}
+                  imgSrc={contact.id === 1 ? whatsapp : telegram}
+              />
+          ))}
+          <img className={styles.chat} src={chat} alt="Chat" onClick={handleClick} />
+        </div>
       </div>
-    </div>
   );
 };
 

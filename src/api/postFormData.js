@@ -3,11 +3,6 @@ import axios from "axios";
 const submitFormData = async (formData) => {
   try {
     const response = await axios.post("http://107.23.142.232:80/api/v1/products/subscribe/", formData, {
-      headers: {
-        "Content-Type": "application/json",
-        "accept": "application/json",
-        "X-CSRFToken": "fRKMBpc7irb4uEZyH1tSAD4bLFS7qjkk87484NXrA8uCOCkEc0Q5Hzm7BG8Espsh"
-      }
     });
     return response.data;
   } catch (error) {

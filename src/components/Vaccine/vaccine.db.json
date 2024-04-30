@@ -6,14 +6,7 @@
       "title": "Бенстреп LA",
       "discription": "Суспензия для инъекций",
       "img": "https://beleka.by/upload/resize_cache/iblock/c55/1100_1100_040cd750bba9870f18aada2478b24840a/Benstrep_LA.png",
-      "types": [
-        "bird",
-        "cat",
-        "chicken",
-        "goat",
-        "horse",
-        "pig"
-      ]
+      "types": ["bird", "cat", "chicken", "goat", "horse", "pig"]
     },
     {
       "id": 1,
@@ -21,16 +14,7 @@
       "title": "Бенстреп LA",
       "discription": "Суспензия для инъекций",
       "img": "https://beleka.by/upload/resize_cache/iblock/c55/1100_1100_040cd750bba9870f18aada2478b24840a/Benstrep_LA.png",
-      "types": [
-        "bird",
-        "cat",
-        "chicken",
-        "dog",
-        "fish",
-        "goat",
-        "horse",
-        "pig"
-      ]
+      "types": ["bird", "cat", "chicken", "dog", "fish", "goat", "horse", "pig"]
     },
     {
       "id": 2,
@@ -38,16 +22,7 @@
       "title": "Бенстреп LA",
       "discription": "Суспензия для инъекций",
       "img": "https://beleka.by/upload/resize_cache/iblock/c55/1100_1100_040cd750bba9870f18aada2478b24840a/Benstrep_LA.png",
-      "types": [
-        "bird",
-        "cat",
-        "chicken",
-        "dog",
-        "fish",
-        "goat",
-        "horse",
-        "pig"
-      ]
+      "types": ["bird", "cat", "chicken", "dog", "fish", "goat", "horse", "pig"]
     },
     {
       "id": 3,
@@ -55,16 +30,7 @@
       "title": "Бенстреп LA",
       "discription": "Суспензия для инъекций",
       "img": "https://beleka.by/upload/resize_cache/iblock/c55/1100_1100_040cd750bba9870f18aada2478b24840a/Benstrep_LA.png",
-      "types": [
-        "bird",
-        "cat",
-        "chicken",
-        "dog",
-        "fish",
-        "goat",
-        "horse",
-        "pig"
-      ]
+      "types": ["bird", "cat", "chicken", "dog", "fish", "goat", "horse", "pig"]
     }
   ]
 }

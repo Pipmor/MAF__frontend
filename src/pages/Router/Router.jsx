@@ -8,13 +8,16 @@ import Questions from "../Questions/Questions.jsx";
 import Layout from "../../components/Layout/Layout.jsx";
 import styles from "../../components/Breadcrumbs/Breadcrumbs.module.css";
 import ErrorPage from "../ErrorPage/ErrorPage.jsx";
-import { getProductById } from "../../api/getProductById.js";
+import {getProductById} from "../../api/getProductById.js";
+import productNew from "../../components/ProductNew/ProductNew.jsx";
 import DetailPage from "../DetailPage/DetailPage.jsx";
 import Services from "../Services/Services.jsx";
 import CalendarPage from "../../components/Сalendar/Calendar.jsx";
 import NewsPage from "../../components/News/News.jsx";
 import EventsPage from "../../components/Events/Events.jsx";
 import NewsVideo from "../../components/NewsVideo/NewsVideo.jsx";
+import Vaccine from "../../components/Vaccine/Vaccine.jsx";
+import ProductNew from "../../components/ProductNew/ProductNew.jsx";
 
 
 const Router = () => {
@@ -35,6 +38,17 @@ const Router = () => {
         { index: true, element: <Home /> },
 
         {
+          path: "services",
+          element: <Services />,
+          handle: {
+            crumb: () => (
+                <NavLink to="/services" className={styles.navLink} end>
+                  Услуги
+                </NavLink>
+            ),
+          },
+        },
+        {
           path: "products",
           element: <Products />,
           handle: {
@@ -46,7 +60,7 @@ const Router = () => {
           },
           children: [
             {
-              path: ":name",
+              path: ":id",
               element: <DetailPage />,
               loader: getProductById,
               handle: {
@@ -58,16 +72,28 @@ const Router = () => {
           ],
         },
         {
-          path: "services",
-          element: <Services/>,
+          path: "vaccine",
+          element: <Vaccine/>,
           handle: {
             crumb: () => (
-                <NavLink to="/services" className={styles.navLink} end>
-                  Услуги
+                <NavLink to="/vaccine" className={styles.navLink} end>
+                  Вакцины
                 </NavLink>
             ),
           },
         },
+        {
+          path: "ProductNew",
+          element: <ProductNew/>,
+          handle: {
+            crumb: () => (
+                <NavLink to="/productNew" className={styles.navLink} end>
+                  Новинки
+                </NavLink>
+            ),
+          },
+        },
+
         {
           path: "press",
           element: <Press />,

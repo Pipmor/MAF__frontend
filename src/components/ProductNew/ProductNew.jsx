@@ -1,5 +1,5 @@
 import PageBlock from "../PageBlock/PageBlock.jsx";
-import styles from "./ProductsBlock.module.css";
+import styles from "./ProductNew.module.css";
 import ProductCard from "../ProductCard/ProductCard.jsx";
 import { Link } from "react-router-dom";
 import Button from "../UI/Button/Button.jsx";
@@ -7,9 +7,9 @@ import useSWRImmutable from "swr/immutable";
 import { getProductsData } from "../../api/getProductsData.js";
 import { displayCards } from "../../constants/displayCard.js";
 
-import data from "./products.db.json";
+import data from "./../Vaccine/vaccine.db.json";
 
-const ProductsBlock = ({ isHomePage }) => {
+const ProductNew = ({ isHomePage }) => {
     const { data: productsData } = useSWRImmutable("/products/", getProductsData);
 
     return (
@@ -25,7 +25,7 @@ const ProductsBlock = ({ isHomePage }) => {
                     </ul>
                 </div>
                 <div className={styles.container}>
-                    <h2>Продукция</h2>
+                    <h2>Новинки</h2>
                     <div className={styles.selector_wrapper}>
                         <p>Сортировать по:</p>
                         <select className={styles.selector}>
@@ -55,4 +55,4 @@ const ProductsBlock = ({ isHomePage }) => {
         </PageBlock>
     );
 };
-export default ProductsBlock;
+export default ProductNew;

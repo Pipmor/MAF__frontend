@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://107.23.142.232:80/api/v1/blog/video/';
+const API_URL = '/blog/video/';
 
 export const getProductsData = async () => {
     try {

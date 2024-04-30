@@ -8,7 +8,6 @@ const Products = () => {
   return (
     <>
       <ProductsBlock />
-      
     </>
   );
 };

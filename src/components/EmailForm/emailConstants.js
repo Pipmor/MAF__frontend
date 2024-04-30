@@ -43,6 +43,5 @@ export const inputValidation = {
 export const formatPhoneNumber = (value) => {
   let cleanedValue = value.replace(/[^\d]/g, "");
   cleanedValue = cleanedValue.slice(0, 9);
-  const formattedValue = cleanedValue.replace(/(\d{3})(?=\d)/g, "$1 ").trim();
-  return formattedValue;
+  return cleanedValue.replace(/(\d{3})(?=\d)/g, "$1 ").trim();
 };

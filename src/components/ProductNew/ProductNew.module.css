@@ -1,4 +1,4 @@
-.container{
+.container {
     display: flex;
     gap: 20px;
     flex-direction: column;
@@ -12,7 +12,7 @@
     gap: 20px;
 }
 
-.wrapper{
+.wrapper {
     text-align: start;
 }
 
@@ -26,7 +26,7 @@
     color: #26B9A8;
 }
 
-.selector_wrapper{
+.selector_wrapper {
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -35,37 +35,40 @@
     top: 0;
     right: 0;
 }
-.selector_wrapper p{
+
+.selector_wrapper p {
     color: #40be99;
 }
-.selector{
+
+.selector {
     width: 200px;
     height: 25px;
     padding: 5px;
     border-radius: 10px;
 }
 
-.wrapperCard{
+.wrapperCard {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
 
-.button_wrapper{
+.button_wrapper {
     width: 100%;
     display: flex;
     justify-content: flex-end;
 }
 
-@media screen and (max-width: 1100px){
-    .wrapperCard {
+@media screen and (max-width: 1100px) {
+    .productNewWrapperCard {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 16px;
     }
 }
-@media screen and (max-width: 900px){
-    .wrapperCard {
+
+@media screen and (max-width: 900px) {
+    .productNewWrapperCard {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 8px;

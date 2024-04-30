@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useState, useEffect } from "react";
 import styles from "./EmailForm.module.css";
 import Input from "../Input/Input.jsx";
 import Button from "../UI/Button/Button.jsx";
@@ -26,6 +26,10 @@ const EmailForm = ({ isModal }) => {
   const [onBlurInput, setOnBlurInput] = useState(initialBlurState);
   const [showModal, setShowModal] = useState(false);
   const [showSpinner, setShowSpinner] = useState(false);
+
+  useEffect(() => {
+    setFormState(initialFormState);
+  }, []);
 
   const openModal = useCallback(() => setShowModal(true), []);
   const closeModal = useCallback(() => setShowModal(false), []);
@@ -59,11 +63,6 @@ const EmailForm = ({ isModal }) => {
       let rawValue = correctedValue.slice(5).replace(/[^\d]/g, "");
       const formattedValue = formatPhoneNumber(rawValue);
 
-      setFormState((prevFormState) => ({
-        ...prevFormState,
-        [name]: "+996 " + formattedValue,
-      }));
-
       const finalValue = "+996 " + formattedValue;
       const { regex, errorMessage } = inputValidation[name];
       setValidationErrors((prevErrors) => ({
@@ -72,6 +71,10 @@ const EmailForm = ({ isModal }) => {
       }));
     }
 
+    setFormState((prevFormState) => ({
+      ...prevFormState,
+      [name]: value,
+    }));
   }, []);
 
   const handleSubmit = async (e) => {
@@ -105,9 +108,6 @@ const EmailForm = ({ isModal }) => {
                     id="userName"
                     name="userName"
                     placeholder="Имя*"
-                    required
-                    maxLength={50}
-                    label={`${formState.userName.length}/50`}
                     onChange={handleInputChange}
                     onBlur={handleInputChange}
                     border={onBlurInput.userName && (emptyFields.userName || validationErrors.userName) && errorBorderColor}
@@ -142,7 +142,6 @@ const EmailForm = ({ isModal }) => {
                   required
                   onChange={handleInputChange}
                   onBlur={handleInputChange}
-                  onFocus={handleInputChange}
                   border={onBlurInput.userPhone && (emptyFields.userPhone || validationErrors.userPhone) && errorBorderColor}
               />
               <p className={styles.errorText}>

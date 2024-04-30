@@ -2,7 +2,6 @@ import { useLoaderData } from "react-router-dom";
 import parse from "html-react-parser";
 import PageBlock from "../../components/PageBlock/PageBlock";
 import Button from "../../components/UI/Button/Button";
-import ReusableCarousel from "../../components/ReusableCarousel/ReusableCarousel";
 import DOMPurify from "dompurify";
 import { useModal } from "../../components/Modal/ModalContext";
 import styles from "./DetailPage.module.css";
@@ -42,7 +41,6 @@ const DetailPage = () => {
           <div className={styles.detailDescription}>{parse(formattedData)}</div>
         </div>
       </PageBlock>
-      <ReusableCarousel dots="true" />
     </>
   );
 };

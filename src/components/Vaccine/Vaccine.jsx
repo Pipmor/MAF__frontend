@@ -1,5 +1,5 @@
 import PageBlock from "../PageBlock/PageBlock.jsx";
-import styles from "./ProductsBlock.module.css";
+import styles from "./Vaccine.module.css";
 import ProductCard from "../ProductCard/ProductCard.jsx";
 import { Link } from "react-router-dom";
 import Button from "../UI/Button/Button.jsx";
@@ -7,9 +7,9 @@ import useSWRImmutable from "swr/immutable";
 import { getProductsData } from "../../api/getProductsData.js";
 import { displayCards } from "../../constants/displayCard.js";
 
-import data from "./products.db.json";
+import data from "./vaccine.db.json";
 
-const ProductsBlock = ({ isHomePage }) => {
+const Vaccine = ({ isHomePage }) => {
     const { data: productsData } = useSWRImmutable("/products/", getProductsData);
 
     return (
@@ -25,7 +25,8 @@ const ProductsBlock = ({ isHomePage }) => {
                     </ul>
                 </div>
                 <div className={styles.container}>
-                    <h2>Продукция</h2>
+                    <h2>Вакцины</h2>
+                    <p>Вакцина - это биологическое препарат, который используется для защиты организма от инфекционных заболеваний. Она содержит ослабленные или убитые формы патогенов (вирусы, бактерии и т. д.), либо их антигены, что позволяет организму развить иммунитет к определенной болезни без риска тяжелого заболевания. Вакцины являются одним из наиболее эффективных способов предотвращения распространения инфекционных заболеваний и считаются ключевым инструментом в общественном здравоохранении.</p>
                     <div className={styles.selector_wrapper}>
                         <p>Сортировать по:</p>
                         <select className={styles.selector}>
@@ -55,4 +56,4 @@ const ProductsBlock = ({ isHomePage }) => {
         </PageBlock>
     );
 };
-export default ProductsBlock;
+export default Vaccine;

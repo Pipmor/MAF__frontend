@@ -35,7 +35,13 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Responsive */
+.productCardTitle {
+  padding: 10px;
+}
+
+.productCardDescription {
+  padding: 10px;
+}
 
 @media (max-width: 800px) {
   .productCardTitle {

@@ -9,15 +9,14 @@ import Layout from "../../components/Layout/Layout.jsx";
 import styles from "../../components/Breadcrumbs/Breadcrumbs.module.css";
 import ErrorPage from "../ErrorPage/ErrorPage.jsx";
 import {getProductById} from "../../api/getProductById.js";
-import productNew from "../../components/ProductNew/ProductNew.jsx";
-import DetailPage from "../DetailPage/DetailPage.jsx";
-import Services from "../Services/Services.jsx";
+import ProductDetail from "../DetailPage/ProductDetail.jsx";
 import CalendarPage from "../../components/Сalendar/Calendar.jsx";
 import NewsPage from "../../components/News/News.jsx";
 import EventsPage from "../../components/Events/Events.jsx";
 import NewsVideo from "../../components/NewsVideo/NewsVideo.jsx";
 import Vaccine from "../../components/Vaccine/Vaccine.jsx";
 import ProductNew from "../../components/ProductNew/ProductNew.jsx";
+import ServicePage from "../ServicePage/ServicePage.jsx";
 
 
 const Router = () => {
@@ -39,7 +38,7 @@ const Router = () => {
 
         {
           path: "services",
-          element: <Services />,
+          element: <ServicePage />,
           handle: {
             crumb: () => (
                 <NavLink to="/services" className={styles.navLink} end>
@@ -60,13 +59,11 @@ const Router = () => {
           },
           children: [
             {
-              path: ":id",
-              element: <DetailPage />,
-              loader: getProductById,
+              path: ':productId',
+              element: <ProductDetail />,
+              loader: (params) => getProductById({ params: { id: parseInt(params.productId, 10) } }),
               handle: {
-                crumb: (data) => (
-                  <span className={styles.span}>{data.title}</span>
-                ),
+                crumb: (data) => <span className={styles.span}>{data.title}</span>,
               },
             },
           ],
@@ -89,6 +86,17 @@ const Router = () => {
             crumb: () => (
                 <NavLink to="/productNew" className={styles.navLink} end>
                   Новинки
+                </NavLink>
+            ),
+          },
+        },
+        {
+          path: "ProductDetail",
+          element: <ProductDetail/>,
+          handle: {
+            crumb: () => (
+                <NavLink to="/productDetail" className={styles.navLink} end>
+                  ТЩАЗ
                 </NavLink>
             ),
           },

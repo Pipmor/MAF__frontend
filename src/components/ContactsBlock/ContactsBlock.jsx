@@ -20,7 +20,7 @@ const fetcher = async (url) => {
 };
 
 const ContactsBlock = () => {
-    const { data: contacts, error } = useSWR("http://107.23.142.232/api/v1/blog/contact", fetcher);
+    const { data: contacts, error } = useSWR("/blog/contact", fetcher);
 
     if (error) {
         return <div>Ошибка при загрузке контактов.</div>;

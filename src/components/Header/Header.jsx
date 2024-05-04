@@ -9,6 +9,7 @@ const linkList = [
   { destination: "press", caption: "Пресс центр" },
   { destination: "questions", caption: "Вопросы и Ответы" },
   { destination: "contacts", caption: "Контакты" },
+  { destination: "productDetail", caption: "ТЩФЗ" },
 ];
 
 const Header = () => {

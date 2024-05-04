@@ -1,0 +1,23 @@
+.container {
+    display: flex; /* Используем flexbox для расположения в ряд */
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.accordion-title {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    background-color: #f0f0f0;
+    padding: 10px;
+}
+
+.accordion-title:hover {
+    background-color: #e0e0e0;
+}
+
+.accordion-content {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-top: none;
+}

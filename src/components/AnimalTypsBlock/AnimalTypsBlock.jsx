@@ -1,3 +1,4 @@
+import React from "react";
 import bird from "../../assets/icons/animals/bird.svg";
 import cat from "../../assets/icons/animals/cat.svg";
 import chicken from "../../assets/icons/animals/chicken.svg";
@@ -20,10 +21,10 @@ const configObject = {
 
 export const AnimalTypsBlock = ({ types }) => {
   return (
-    <div>
-      {types?.map((type) => {
-        return <img src={configObject[type]} alt="icon" />;
-      })}
-    </div>
+      <div>
+        {types?.map((type, index) => (
+            <img key={index} src={configObject[type]} alt="icon" />
+        ))}
+      </div>
   );
 };

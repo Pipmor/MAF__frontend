@@ -12,6 +12,7 @@
   margin-top: 100px;
   margin-left: 65px;
   border-radius: 20px;
+  border: 1px solid #26B9A8;
 }
 
 @media (max-width: 800px) {

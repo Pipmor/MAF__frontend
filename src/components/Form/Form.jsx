@@ -3,9 +3,11 @@ import styles from "./Form.module.css";
 import Input from "../Input/Input";
 import Button from "../UI/Button/Button";
 import Spinner from "../Spinner/Spinner";
-import submitFormData from "../../api/postFormData.js"; // Импортируем функцию отправки данных
+import submitFormData from "../../api/postFormData.js";
+import {useTranslation} from "react-i18next";
 
 const Form = () => {
+  const { t } = useTranslation();
   const [userEmail, setUserEmail] = useState("");
   const [onBlurInput, setOnBlurInput] = useState(false);
   const [showSpinner, setShowSpinner] = useState(false);
@@ -30,7 +32,7 @@ const Form = () => {
 
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!regex.test(userEmail)) {
-      setValidationErrors("Некорректный email");
+      setValidationErrors(t('invalidEmail'));
       setShowSpinner(false);
       return;
     }
@@ -40,8 +42,8 @@ const Form = () => {
       await submitFormData({ email: userEmail }); // Вызов функции отправки данных
       setShowModal(true);
     } catch (error) {
-      console.error("Ошибка при отправке данных:", error); // Обработка ошибок
-      alert("Произошла ошибка при отправке данных. Пожалуйста, попробуйте снова позже.");
+      console.error(t('error1'), error); // Обработка ошибок
+      alert(t('error2'));
     } finally {
       setShowSpinner(false);
     }
@@ -55,14 +57,14 @@ const Form = () => {
   return (
       <form className={styles.form}>
         <div className={styles.flexContainer}>
-          <p className={styles.label}>Подписаться на новости</p>
+          <p className={styles.label}>{t('subscribeToNews')}</p>
 
           <Input
               value={userEmail}
               id="userEmail"
               type="email"
               name="userEmail"
-              placeholder="Электронная почта"
+              placeholder={t('emailReq')}
               onChange={handleInputChange}
               onBlur={handleInputBlur}
               border={onBlurInput && userEmail.trim() && validationErrors && styles.errorBorderColor}
@@ -72,7 +74,7 @@ const Form = () => {
           <Button onClick={handleButtonClick} className="button">
             {showSpinner && <Spinner />}
             <span style={{ color: showSpinner && "black" }}>
-            {showSpinner ? "Загрузка..." : "Оставить заявку"}
+            {showSpinner ? t('loading') : t('submitApplication')}
           </span>
           </Button>
         </div>
@@ -85,9 +87,9 @@ const Form = () => {
         {showModal && (
             <div className={styles.modalBackdrop}>
               <div className={styles.modalContent}>
-                <h2>Данные отправлены!</h2>
+                <h2>{t('dataSent')}</h2>
                 <Button onClick={closeModal}>
-                  Закрыть
+                  {t('close')}
                 </Button>
               </div>
             </div>

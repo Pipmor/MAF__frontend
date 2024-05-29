@@ -1,9 +1,9 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
-import useSWR from "swr";
-import { getContacts } from "../../../api/getContacts.js";
 import styles from "./DesktopHeader.module.css";
-import Search from "../../Search/Search.jsx"; // Используйте дефолтный импорт без фигурных скобок
+import Search from "../../Search/Search.jsx";
+import logo from "../../../assets/images/Logo.png";
+import LanguageSelector from "../../LanguageSwitcher/LanguageSwitcher.jsx";
 
 const DesktopHeader = ({ linkList }) => {
   return (
@@ -19,13 +19,14 @@ const DesktopHeader = ({ linkList }) => {
                 +996000000000
               </a>
             </div>
+            <LanguageSelector/>
           </div>
         </div>
         <header className={styles.header}>
           <div className={styles.navWrapper}>
             <nav className={`${styles.nav} container`}>
               <Link to="/" className={styles.homeLink}>
-                {/* Контент для домашней ссылки */}
+                <img src={logo} alt="Логотип" className={styles.logo} />
               </Link>
               <ul className={styles.navList}>
                 {linkList.map((item) => (

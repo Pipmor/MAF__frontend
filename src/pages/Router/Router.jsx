@@ -11,7 +11,7 @@ import ErrorPage from "../ErrorPage/ErrorPage.jsx";
 import {getProductById} from "../../api/getProductById.js";
 import ProductDetail from "../DetailPage/ProductDetail.jsx";
 import CalendarPage from "../../components/Сalendar/Calendar.jsx";
-import NewsPage from "../../components/News/News.jsx";
+import NewsPage from "../../components/Publish/Publish.jsx";
 import EventsPage from "../../components/Events/Events.jsx";
 import NewsVideo from "../../components/NewsVideo/NewsVideo.jsx";
 import Vaccine from "../../components/Vaccine/Vaccine.jsx";
@@ -137,8 +137,8 @@ const Router = () => {
           },
         },
         {
-          path: "calendar", // Путь к странице календаря
-          element: <CalendarPage />, // Компонент страницы календаря
+          path: "calendar",
+          element: <CalendarPage />,
           handle: {
             crumb: () => (
                 <NavLink to="/calendar" className={styles.navLink} end>
@@ -148,8 +148,8 @@ const Router = () => {
           },
         },
         {
-          path: "newsvideo", // Путь к странице календаря
-          element: <NewsVideo />, // Компонент страницы календаря
+          path: "newsvideo",
+          element: <NewsVideo />,
           handle: {
             crumb: () => (
                 <NavLink to="/newsvideo" className={styles.navLink} end>

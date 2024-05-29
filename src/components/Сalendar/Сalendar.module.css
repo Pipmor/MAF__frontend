@@ -1,5 +1,6 @@
 .calendarContainer {
     display: flex;
+
 }
 
 .leftColumn {
@@ -14,6 +15,7 @@
 
 .calendarTable {
     position: relative;
+    margin-left: 10em;
     padding: 40px;
     width: 60em;
     height: 100%;

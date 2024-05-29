@@ -1,23 +1,27 @@
-import styles from "./Footer.module.css";
+import React from "react";
 import { Link } from "react-router-dom";
-
-const linkList = [
-  { destination: "about", caption: "О компании" },
-  { destination: "services", caption: "Услуги" },
-  { destination: "products", caption: "Продукция" },
-  { destination: "partners", caption: "Наши партнёры" },
-  { destination: "press", caption: "Пресс центр" },
-  { destination: "questions", caption: "Вопросы и Ответы" },
-  { destination: "contacts", caption: "Контакты" },
-];
+import { useTranslation } from "react-i18next";
+import styles from "./Footer.module.css";
+import logo from "../../assets/images/Logo.png";
 
 const Footer = () => {
+  const { t } = useTranslation();
+
+  const linkList = [
+    { destination: "about", caption: t("about") },
+    { destination: "services", caption: t("services") },
+    { destination: "products", caption: t("productLink1") },
+    { destination: "press", caption: t("press") },
+    { destination: "questions", caption: t("AnswerQuestions") },
+    { destination: "contacts", caption: t("contacts") },
+  ];
+
   return (
-      <footer className={styles. footer}>
+      <footer className={styles.footer}>
         <div className="container">
           <div className={styles.flexContainer}>
-            <Link to="/" className={styles.logo}>
-
+            <Link to="/" >
+              <img src={logo} alt="Логотип" className={styles.logo} />
             </Link>
 
             <nav className={styles.footerNav}>

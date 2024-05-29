@@ -1,8 +1,8 @@
 import axios from "axios";
 
-const postEmailData = async (formData) => {
+const postModalData = async (formData) => {
     try {
-        const response = await axios.post("http://107.23.142.232:80/api/v1/blog/questions/", formData, {
+        const response = await axios.post("http://107.23.142.232:80/api/v1/products/order/", formData, {
         });
         return response.data;
     } catch (error) {
@@ -11,4 +11,4 @@ const postEmailData = async (formData) => {
     }
 };
 
-export default postEmailData;
+export default postModalData;

@@ -18,8 +18,10 @@ import {
   inputValidation,
   formatPhoneNumber,
 } from "./emailConstants.js";
+import {useTranslation} from "react-i18next";
 
 const EmailForm = ({ isModal }) => {
+  const { t } = useTranslation();
   const [formState, setFormState] = useState(initialFormState);
   const [validationErrors, setValidationErrors] = useState(initialErrorState);
   const [emptyFields, setEmptyFields] = useState(initialEmptyState);
@@ -107,7 +109,7 @@ const EmailForm = ({ isModal }) => {
                     value={formState.userName}
                     id="userName"
                     name="userName"
-                    placeholder="Имя*"
+                    placeholder={t('emailName')}
                     onChange={handleInputChange}
                     onBlur={handleInputChange}
                     border={onBlurInput.userName && (emptyFields.userName || validationErrors.userName) && errorBorderColor}
@@ -123,7 +125,7 @@ const EmailForm = ({ isModal }) => {
                   id="userEmail"
                   type="email"
                   name="userEmail"
-                  placeholder="Электронная почта*"
+                  placeholder={t('emailReq')}
                   onChange={handleInputChange}
                   onBlur={handleInputChange}
                   border={validationErrors.userEmail && errorBorderColor}
@@ -138,7 +140,7 @@ const EmailForm = ({ isModal }) => {
                   id="userPhone"
                   type="phone"
                   name="userPhone"
-                  placeholder="Номер телефона*"
+                  placeholder={t('emailPhone')}
                   required
                   onChange={handleInputChange}
                   onBlur={handleInputChange}
@@ -154,18 +156,18 @@ const EmailForm = ({ isModal }) => {
                   id="userComment"
                   type="textarea"
                   name="userComment"
-                  placeholder="Вопрос"
+                  placeholder={t('emailQuestion')}
                   maxLength={300}
                   label={`${formState.userComment.length}/300`}
                   onChange={handleInputChange}
               />
             </div>
-            <p className={styles.requiredFieldsText}>* Поля обязательны к заполнению</p>
+            <p className={styles.requiredFieldsText}>{t('requiredFields')}</p>
             <div className={styles.button}>
               <Button onClick={handleSubmit} className="button">
                 {showSpinner && <Spinner />}
                 <span style={{ color: showSpinner && "white" }}>
-                {showSpinner ? "Загрузка..." : "Оставить заявку"}
+                {showSpinner ? t('loading') : t('submitApplication')}
               </span>
               </Button>
             </div>

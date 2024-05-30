@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import search from '../../assets/icons/header_icons/search.svg';
 import styles from './Search.module.css';
 import ProductDropdown from '../ProductDropdown/Dropdown';
+import { getProductsData } from '../../api/getProductsData.js';
 
 const Search = () => {
     const [searchTerm, setSearchTerm] = useState('');
@@ -10,24 +11,25 @@ const Search = () => {
     const inputRef = useRef(null);
 
     const handleInputChange = async (event) => {
-        const value = event.target.value;
-        const lowercaseValue = value.trim().toLowerCase(); // Преобразуем к нижнему регистру
+        const value = event.target.value.trim().toLowerCase();
 
         setSearchTerm(value);
 
-        if (lowercaseValue !== '') {
+        if (value !== '') {
             try {
-                const response = await fetch(`http://107.23.142.232:80/api/v1/products/?search=${encodeURIComponent(lowercaseValue)}`);
-                if (!response.ok) {
-                    throw new Error('Ошибка при загрузке данных');
-                }
-                const data = await response.json();
-                setSearchResults(data);
+                // Выполняем запрос к серверу для получения списка продуктов
+                const productList = await getProductsData();
+
+                // Фильтруем продукты по имени на основе введенного значения
+                const filteredProducts = productList.filter(product =>
+                    product.name.toLowerCase().includes(value)
+                );
+
+                setSearchResults(filteredProducts);
                 setShowDropdown(true);
-            } catch (error) {
-                console.error('Произошла ошибка при выполнении поиска:', error);
-                setSearchResults([]);
-                setShowDropdown(false);
+            } finally {
+                // Код в блоке finally будет выполнен независимо от успешности запроса
+                setShowDropdown(true);
             }
         } else {
             setShowDropdown(false);
@@ -55,7 +57,6 @@ const Search = () => {
                 <img src={search} alt="search-icon" className={styles.icon} />
             </button>
 
-            {/* Используем компонент ProductDropdown для отображения выпадающего меню */}
             {showDropdown && (
                 <ProductDropdown
                     products={searchResults}

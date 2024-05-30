@@ -1,27 +1,45 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PageBlock from '../PageBlock/PageBlock.jsx';
 import styles from './ProductsBlock.module.css';
 import ProductCard from '../ProductCard/ProductCard.jsx';
 import { Link } from 'react-router-dom';
-import Button from '../UI/Button/Button.jsx';
-import useSWRImmutable from 'swr/immutable';
 import ReactPaginate from 'react-paginate';
 import { getProductsData } from '../../api/getProductsData.js';
 import ProductFilter from '../ProductFilter/ProductFilter.jsx';
-import {useTranslation} from "react-i18next";
+import { useTranslation } from 'react-i18next';
 
 const ProductsBlock = ({ isHomePage }) => {
     const { t } = useTranslation();
-    const [currentPage, setCurrentPage] = useState(0);
+    const [products, setProducts] = useState([]);
+    const [filteredProducts, setFilteredProducts] = useState([]);
     const productsPerPage = 6; // Количество продуктов на странице
-    const minProductsToShowPagination = 2; // Минимальное количество продуктов для отображения пагинации
+    const [currentPage, setCurrentPage] = useState(0);
 
-    const { data: productsData } = useSWRImmutable('/products/', getProductsData);
-    const products = productsData || []; // Если данные еще не загружены, устанавливаем пустой массив
+    useEffect(() => {
+        const fetchProducts = async () => {
+            try {
+                const productsData = await getProductsData();
+                setProducts(productsData);
+                setFilteredProducts(productsData); // Initialize with all products
+            } catch (error) {
+                console.error('Failed to fetch products:', error);
+            }
+        };
+
+        fetchProducts();
+    }, []);
+
+    const handleFilterChange = (filteredProducts) => {
+        setFilteredProducts(filteredProducts);
+        setCurrentPage(0); // Reset to first page on filter change
+    };
 
     const handlePageClick = ({ selected }) => {
         setCurrentPage(selected);
     };
+
+    const offset = currentPage * productsPerPage;
+    const currentProducts = filteredProducts.slice(offset, offset + productsPerPage);
 
     return (
         <PageBlock className="wrapper">
@@ -29,32 +47,28 @@ const ProductsBlock = ({ isHomePage }) => {
                 <div className={styles.leftColumn}>
                     <ul>
                         <li>
-                            <Link to="/">{t('productLink1')}</Link>
+                            <Link key="veterenarDrugs" to="/veterenarDrugs">{t('productLink2')}</Link>
                         </li>
                         <li>
-                            <Link to="/">{t('productLink2')}</Link>
+                            <Link key="vaccine" to="/vaccine">{t('productLink4')}</Link>
                         </li>
                         <li>
-                            <Link to="/vaccine">{t('productLink4')}</Link>
+                            <Link key="feed" to="/feed">{t('productLink3')}</Link>
                         </li>
                         <li>
-                            <Link to="/products">{t('productLink1')}</Link>
+                            <Link key="products" to="/products">{t('productLink1')}</Link>
                         </li>
                         <li>
-                            <Link to="/productNew">{t('productLink5')}</Link>
+                            <Link key="productNew" to="/productNew">{t('productLink5')}</Link>
                         </li>
                     </ul>
                 </div>
                 <div className={styles.container}>
-                    <h2>Продукция</h2>
-                    <ProductFilter
-                        options={['Курица', 'Овцы', 'Коровы', 'Лошади', 'Свиньи', 'Собака']}
-                        products={products}
-                    />
-
+                    <p className={styles.title}>Продукция</p>
+                    <ProductFilter onFilterChange={handleFilterChange} />
                     <div className={styles.wrapperCard}>
-                        {products &&
-                            products.map((product) => (
+                        {currentProducts.length > 0 ? (
+                            currentProducts.map((product) => (
                                 <ProductCard
                                     key={product.id}
                                     title={product.name}
@@ -63,11 +77,14 @@ const ProductsBlock = ({ isHomePage }) => {
                                     id={product.id}
                                     types={product.icon_animal}
                                 />
-                            ))}
+                            ))
+                        ) : (
+                            <p className={styles.noProducts}>Нет продуктов с выбранным видом животного</p>
+                        )}
                     </div>
-                    {products.length > minProductsToShowPagination && (
+                    {filteredProducts.length > productsPerPage && (
                         <ReactPaginate
-                            pageCount={Math.ceil(products.length / productsPerPage)}
+                            pageCount={Math.ceil(filteredProducts.length / productsPerPage)}
                             pageRangeDisplayed={5}
                             marginPagesDisplayed={2}
                             onPageChange={handlePageClick}

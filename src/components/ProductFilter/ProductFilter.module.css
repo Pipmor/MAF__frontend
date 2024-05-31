@@ -1,0 +1,29 @@
+.selector_wrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    position: absolute;
+    margin-left: 35em;
+    color: #0d0d0d;
+}
+
+.selector_wrapper p {
+    color: #061712;
+}
+
+.selector {
+    width: 200px;
+    height: 25px;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+/* Медиа-запрос для адаптации на устройствах с шириной от 400px до 1024px */
+@media screen and (min-width: 400px) and (max-width: 1024px) {
+    .selector_wrapper {
+        justify-content: flex-end; /* Выравниваем элементы по центру */
+        margin-left: 0; /* Убираем отступ слева */
+        width: 100%; /* Ширина занимает всю доступную ширину */
+    }
+}

@@ -1,23 +1,32 @@
+import React from "react";
 import DesktopHeader from "./DesktopHeader/DesktopHeader";
 import MobileHeader from "./MobileHeader/MobileHeader";
 import useMediaQuery from "../../hooks/useMediaQuery";
-
-const linkList = [
-  { destination: "about", caption: "О компании" },
-  { destination: "services", caption: "Услуги" },
-  { destination: "products", caption: "Продукция" },
-  { destination: "press", caption: "Пресс центр" },
-  { destination: "questions", caption: "Вопросы и Ответы" },
-  { destination: "contacts", caption: "Контакты" },
-  { destination: "productDetail", caption: "ТЩФЗ" },
-];
+import { useTranslation } from "react-i18next";
+import LanguageSelector from "../LanguageSwitcher/LanguageSwitcher.jsx";
 
 const Header = () => {
+  const { t } = useTranslation();
   const isMobile = useMediaQuery("(max-width: 1100px)");
 
-  if (isMobile) return <MobileHeader linkList={linkList} />;
+  const linkList = [
+    { destination: "about", caption: t("about") },
+    { destination: "services", caption: t("services") },
+    { destination: "products", caption: t("productLink1") },
+    { destination: "news", caption: t("press") },
+    { destination: "questions", caption: t("AnswerQuestions") },
+    { destination: "contacts", caption: t("contacts") },
+  ];
 
-  return <DesktopHeader linkList={linkList} />;
+  return (
+      <>
+        {isMobile ? (
+            <MobileHeader linkList={linkList} />
+        ) : (
+            <DesktopHeader linkList={linkList} />
+        )}
+      </>
+  );
 };
 
 export default Header;

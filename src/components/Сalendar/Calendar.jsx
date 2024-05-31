@@ -2,18 +2,19 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PageBlock from '../PageBlock/PageBlock';
 import styles from './Сalendar.module.css';
+import {useTranslation} from "react-i18next";
 
 const CalendarPage = () => {
+    const { t } = useTranslation();
     return (
         <PageBlock>
             <div className={styles.calendarContainer}>
                 <div className={styles.leftColumn}>
                     <ul>
-                        <li><Link to="/events">События</Link></li>
-                        <li><Link to="/news">Публикации</Link></li>
-                        <li><Link to="/link3">Новинки</Link></li>
-                        <li><Link to="/calendar">Календарь выстовок</Link></li>
-                        <li><Link to="/link3">Видео</Link></li>
+                        <li><Link to="/events">{t('newsLink1')}</Link></li>
+                        <li><Link to="/news">{t('newsLink2')}</Link></li>
+                        <li><Link to="/calendar">{t('newsLink4')}</Link></li>
+                        <li><Link to="/newsvideo">{t('newsLink5')}</Link></li>
                     </ul>
                 </div>
                 <div className={styles.calendarTable}>

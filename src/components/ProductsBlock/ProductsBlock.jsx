@@ -1,30 +1,45 @@
-import React, { useState } from "react";
-import PageBlock from "../PageBlock/PageBlock.jsx";
-import styles from "./ProductsBlock.module.css";
-import ProductCard from "../ProductCard/ProductCard.jsx";
-import { Link } from "react-router-dom";
-import Button from "../UI/Button/Button.jsx";
-import useSWRImmutable from "swr/immutable";
-import ReactPaginate from "react-paginate";
-import { getProductsData } from "../../api/getProductsData.js";
+import React, { useState, useEffect } from 'react';
+import PageBlock from '../PageBlock/PageBlock.jsx';
+import styles from './ProductsBlock.module.css';
+import ProductCard from '../ProductCard/ProductCard.jsx';
+import { Link } from 'react-router-dom';
+import ReactPaginate from 'react-paginate';
+import { getProductsData } from '../../api/getProductsData.js';
+import ProductFilter from '../ProductFilter/ProductFilter.jsx';
+import { useTranslation } from 'react-i18next';
 
 const ProductsBlock = ({ isHomePage }) => {
-    const [currentPage, setCurrentPage] = useState(0);
+    const { t } = useTranslation();
+    const [products, setProducts] = useState([]);
+    const [filteredProducts, setFilteredProducts] = useState([]);
     const productsPerPage = 6; // Количество продуктов на странице
-    const minProductsToShowPagination = 2; // Минимальное количество продуктов для отображения пагинации
+    const [currentPage, setCurrentPage] = useState(0);
 
-    const { data: productsData } = useSWRImmutable("/products/", getProductsData);
+    useEffect(() => {
+        const fetchProducts = async () => {
+            try {
+                const productsData = await getProductsData();
+                setProducts(productsData);
+                setFilteredProducts(productsData); // Initialize with all products
+            } catch (error) {
+                console.error('Failed to fetch products:', error);
+            }
+        };
+
+        fetchProducts();
+    }, []);
+
+    const handleFilterChange = (filteredProducts) => {
+        setFilteredProducts(filteredProducts);
+        setCurrentPage(0); // Reset to first page on filter change
+    };
 
     const handlePageClick = ({ selected }) => {
         setCurrentPage(selected);
     };
 
-    if (!productsData || productsData.length === 0) {
-        return <div>Нет данных для отображения</div>;
-    }
-
     const offset = currentPage * productsPerPage;
-    const currentProducts = productsData?.slice(offset, offset + productsPerPage);
+    const currentProducts = filteredProducts.slice(offset, offset + productsPerPage);
 
     return (
         <PageBlock className="wrapper">
@@ -32,35 +47,27 @@ const ProductsBlock = ({ isHomePage }) => {
                 <div className={styles.leftColumn}>
                     <ul>
                         <li>
-                            <Link to="/">Ветеринарные препараты</Link>
+                            <Link key="veterenarDrugs" to="/veterenarDrugs">{t('productLink2')}</Link>
                         </li>
                         <li>
-                            <Link to="/">Корма и кормовые добавки</Link>
+                            <Link key="vaccine" to="/vaccine">{t('productLink4')}</Link>
                         </li>
                         <li>
-                            <Link to="/vaccine">Вакцины</Link>
+                            <Link key="feed" to="/feed">{t('productLink3')}</Link>
                         </li>
                         <li>
-                            <Link to="/products">Продукты</Link>
+                            <Link key="products" to="/products">{t('productLink1')}</Link>
                         </li>
                         <li>
-                            <Link to="/productNew">Новинки</Link>
+                            <Link key="productNew" to="/productNew">{t('productLink5')}</Link>
                         </li>
                     </ul>
                 </div>
                 <div className={styles.container}>
-                    <h2>Продукция</h2>
-                    <div className={styles.selector_wrapper}>
-                        <p>Сортировать по:</p>
-                        <select className={styles.selector}>
-                            <option value="">Все</option>
-                            <option value="">А-Я</option>
-                            <option value="">А-Я</option>
-                            <option value="">А-Я</option>
-                        </select>
-                    </div>
+                    <p className={styles.title}>Продукция</p>
+                    <ProductFilter onFilterChange={handleFilterChange} />
                     <div className={styles.wrapperCard}>
-                        {currentProducts &&
+                        {currentProducts.length > 0 ? (
                             currentProducts.map((product) => (
                                 <ProductCard
                                     key={product.id}
@@ -68,31 +75,25 @@ const ProductsBlock = ({ isHomePage }) => {
                                     description={product.short_description}
                                     img_product={product.img_product}
                                     id={product.id}
-                                    types={product.icon_animal}
+                                    types={product.icon_animal.map(animal => animal.icon)} // Изменение здесь
                                 />
-                            ))}
+                            ))
+                        ) : (
+                            <p className={styles.noProducts}>Нет продуктов с выбранным видом животного</p>
+                        )}
                     </div>
-                    {productsData.length > minProductsToShowPagination && (
+                    {filteredProducts.length > productsPerPage && (
                         <ReactPaginate
-                            pageCount={Math.ceil(productsData.length / productsPerPage)}
+                            pageCount={Math.ceil(filteredProducts.length / productsPerPage)}
                             pageRangeDisplayed={5}
                             marginPagesDisplayed={2}
                             onPageChange={handlePageClick}
                             containerClassName={styles.pagination}
                             activeClassName={styles.active}
-                            previousLabel={"Назад"}
-                            nextLabel={"Вперёд"}
+                            previousLabel={'Назад'}
+                            nextLabel={'Вперёд'}
                         />
                     )}
-                    <div className={styles.button_wrapper}>
-                        {isHomePage && (
-                            <Link to={"/products"}>
-                                <Button className="button" withArrow>
-                                    Смотреть все
-                                </Button>
-                            </Link>
-                        )}
-                    </div>
                 </div>
             </div>
         </PageBlock>

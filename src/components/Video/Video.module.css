@@ -21,7 +21,7 @@
 
 .content {
     position: absolute;
-    top: 30%;
+    top: 35%;
     left: 15%;
     text-align: center;
     color: white;
@@ -60,8 +60,8 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.5); /* Полупрозрачное черное затемнение */
-    z-index: 2; /* Установка z-index выше плеера */
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 2;
 }
 
 .youtubePlayer {
@@ -71,5 +71,28 @@
     transform: translate(-50%, -50%);
     width: 900px;
     height: 500px;
-    z-index: 3; /* Установка z-index поверх затемнения */
+    z-index: 3;
+}
+
+@media only screen and (min-width: 400px) and (max-width: 1024px) {
+    .content {
+        margin-right: 2em;
+    }
+
+    .title {
+        font-size: 35px;
+    }
+
+    .subtitle {
+        font-size: 15px;
+    }
+
+    .watchButton {
+        font-size: 0.9em;
+        margin-top: 12px;
+    }
+
+    .youtubePlayer {
+        max-width: none;
+    }
 }

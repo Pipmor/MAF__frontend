@@ -1,0 +1,84 @@
+/* Общие стили */
+.newsContainer {
+  display: flex;
+}
+
+.leftColumn {
+  margin-top: 70px;
+  padding: 30px;
+}
+
+.leftColumn li {
+  margin-bottom: 20px;
+  color: #26B9A8;
+}
+
+.cardColumn {
+  padding: 40px;
+}
+
+.cardColumn h2 {
+  margin-bottom: 20px;
+  margin-left: 20px;
+}
+
+.newsCardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.newsCard {
+  display: flex;
+  flex-direction: column; /* Изменено на вертикальное расположение элементов */
+  width: 100%; /* Ширина занимает всю доступную ширину */
+  border-radius: 10px;
+  padding: 20px;
+  box-sizing: border-box; /* Обеспечивает правильное вычисление ширины и высоты с учетом отступов и границ */
+}
+
+.newsCard img {
+  width: 100%; /* Изображение занимает всю доступную ширину */
+  max-height: 190px; /* Максимальная высота изображения */
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.newsText {
+  padding: 20px;
+}
+
+.newsText h5 {
+  color: #8A8A8A;
+}
+
+.newsText p {
+  margin-bottom: 10px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+}
+
+.pagination li {
+  cursor: pointer;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.pagination li.active {
+  background-color: #26b9a8;
+  color: #fff;
+}
+
+/* Медиа-запрос для адаптации на устройствах с шириной от 400px до 1024px */
+@media screen and (min-width: 400px) and (max-width: 1024px) {
+  .newsCard {
+    width: calc(50% - 20px); /* Уменьшаем ширину карточек до половины ширины контейнера с учетом отступов */
+  }
+}

@@ -3,17 +3,17 @@ import img2 from "../../../assets/images/serviceImages/productImage2.png";
 
 export const data = [
   {
-    name: "Вет. препараты",
+    name: 'productLink2',
     link: "/products",
     image: img1,
   },
   {
-    name: "Корма и кормовые добавки",
+    name: "productLink3",
     link: "/",
     image: img2,
   },
   {
-    name: "Вакцины",
+    name: "productLink4",
     link: "/",
     image: img2,
   },

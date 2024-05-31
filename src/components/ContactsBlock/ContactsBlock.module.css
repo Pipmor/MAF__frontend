@@ -15,11 +15,15 @@
   border: 1px solid #26B9A8;
 }
 
-@media (max-width: 800px) {
+@media screen and (min-width: 400px) and (max-width: 800px) {
   .cardList {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-auto-rows: auto;
-    gap: 20px;
+    grid-template-columns: 1fr; /* Одна колонка для адаптивного отображения */
+    padding-left: 35px; /* Уменьшаем внутренний отступ слева */
+    padding-right: 20px; /* Уменьшаем внутренний отступ справа */
+  }
+
+  .mapImage {
+    width: 100%;
+    margin-left: 1px;
   }
 }

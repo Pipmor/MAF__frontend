@@ -14,8 +14,10 @@
   padding: 40px;
   border-radius: 20px;
   background-color: #fff;
-  box-shadow: 0px 4px 4px 0px var(--modal-box-shadow);
+  box-shadow: 4px 4px var(--modal-box-shadow);
   margin-inline: var(--container-inline-padding);
+  max-width: 40em;
+  height: 40em;
 }
 
 .closeButton {

@@ -1,0 +1,19 @@
+.languageButton {
+    margin: 0 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #26B9A8;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+}
+
+@media only screen and (min-width: 470px) and (max-width: 1024px) {
+    .languageButton {
+        margin: 10px 10px;
+        padding: 2px;
+    }
+}

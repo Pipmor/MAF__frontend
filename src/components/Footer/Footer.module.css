@@ -1,3 +1,4 @@
+/* Общие стили для всех устройств */
 .footer {
   background-color: #26B9A8FF;
   color: white;
@@ -29,4 +30,24 @@
 
 .footerNav a:hover {
   color: #FFA500FF;
+}
+
+.logo {
+  width: 5em;
+  height: 5em;
+}
+
+/* Медиа-запросы для адаптации на мобильных устройствах */
+@media screen and (min-width: 400px) and (max-width: 1024px) {
+  .footerNav {
+    flex-direction: column; /* Навигация в один столбец */
+    align-items: flex-start; /* Выравнивание по левому краю */
+    gap: 20px; /* Уменьшение расстояния между элементами */
+    margin-left: 0; /* Убираем левый отступ */
+    margin-top: 0; /* Убираем верхний отступ */
+  }
+
+  .footer {
+    padding-block: 30px; /* Уменьшаем отступы */
+  }
 }

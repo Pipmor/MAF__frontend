@@ -1,4 +1,3 @@
-import { article } from "../../constants/article.js";
 import EventsPage from "../../components/Events/Events.jsx";
  
 const Press = () => {

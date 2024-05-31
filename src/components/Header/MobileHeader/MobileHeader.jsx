@@ -1,7 +1,9 @@
 import styles from "./MobileHeader.module.css";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import React, { useState } from "react";
 import MobileMenu from "./MobileMenu/MobileMenu.jsx";
+import LanguageSelector from "../../LanguageSwitcher/LanguageSwitcher.jsx";
+import Search from "../../Search/Search.jsx";
 
 const MobileHeader = ({ linkList }) => {
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -19,6 +21,8 @@ const MobileHeader = ({ linkList }) => {
         <MobileMenu isMobileHeader handleMenuOpen={handleMenuOpen} />
         <div className={`${styles.wrapperMenuBar} ${isMenuOpen && styles.isOpen}`}>
           <MobileMenu handleMenuClose={handleMenuClose} />
+            <LanguageSelector className={styles.language}/>
+            <Search className={styles.search} />
           <ul className={styles.menuListContainer}>
             {linkList.map((item, index) => (
                 <li key={index}>

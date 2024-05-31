@@ -1,0 +1,51 @@
+.tabsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tabHeaders {
+    display: flex;
+    flex-wrap: wrap; /* Позволяем вкладкам переноситься на новую строку */
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.tabHeader {
+    padding: 10px 20px;
+    cursor: pointer;
+    width: 20em;
+    max-width: calc(100% - 20px); /* Максимальная ширина вкладки, учитывая промежуток */
+    background-color: #ffffff;
+    color: #26B9A8;
+    border-radius: 20px;
+    border: none;
+    text-align: center;
+}
+
+.tabHeader.active {
+    background-color: #26B9A8;
+    color: #ffffff;
+}
+
+.tabContent {
+    padding: 20px;
+    max-width: calc(100% - 40px); /* Максимальная ширина контента, учитывая внутренний отступ */
+    background-color: #F8F8F8;
+    text-align: left;
+}
+
+@media screen and (max-width: 800px) {
+    .tabHeader {
+        width: 100%; /* Вкладка занимает всю доступную ширину */
+        max-width: none; /* Сбрасываем максимальную ширину */
+        border-radius: 0; /* Убираем закругление углов */
+        text-align: left; /* Выравниваем текст по левому краю */
+        border-radius: 10px;
+    }
+
+    .tabContent {
+        width: 100%; /* Контент занимает всю доступную ширину */
+        max-width: none; /* Сбрасываем максимальную ширину */
+    }
+}

@@ -1,49 +1,85 @@
-import PageBlock from "../PageBlock/PageBlock.jsx";
-import styles from "./ProductNew.module.css";
-import ProductCard from "../ProductCard/ProductCard.jsx";
-import { Link } from "react-router-dom";
-import Button from "../UI/Button/Button.jsx";
-import useSWRImmutable from "swr/immutable";
-import { getProductsData } from "../../api/getProductsData.js";
-import { displayCards } from "../../constants/displayCard.js";
+import React, { useState } from 'react';
+import PageBlock from '../PageBlock/PageBlock.jsx';
+import styles from './ProductNew.module.css';
+import ProductCard from '../ProductCard/ProductCard.jsx';
+import { Link } from 'react-router-dom';
+import Button from '../UI/Button/Button.jsx';
+import useSWRImmutable from 'swr/immutable';
+import ReactPaginate from 'react-paginate';
+import { getProductsData } from '../../api/getProductsData.js';
+import ProductFilter from '../ProductFilter/ProductFilter.jsx';
+import {useTranslation} from "react-i18next";
 
-import data from "./../Vaccine/vaccine.db.json";
+const ProductsBlock = ({ isHomePage }) => {
+    const { t } = useTranslation();
+    const [currentPage, setCurrentPage] = useState(0);
+    const productsPerPage = 6; // Количество продуктов на странице
+    const minProductsToShowPagination = 2; // Минимальное количество продуктов для отображения пагинации
 
-const ProductNew = ({ isHomePage }) => {
-    const { data: productsData } = useSWRImmutable("/products/", getProductsData);
+    const { data: productsData } = useSWRImmutable('/products/', getProductsData);
+    const products = productsData || []; // Если данные еще не загружены, устанавливаем пустой массив
+
+    const handlePageClick = ({ selected }) => {
+        setCurrentPage(selected);
+    };
 
     return (
         <PageBlock className="wrapper">
             <div className={styles.gridContainer}>
                 <div className={styles.leftColumn}>
                     <ul>
-                        <li><Link to="/">Ветеринарные препараты</Link></li>
-                        <li><Link to="/">Корма и кормовые добавки</Link></li>
-                        <li><Link to="/vaccine">Вакцины</Link></li>
-                        <li><Link to="/products">Продукты</Link></li>
-                        <li><Link to="/productNew">Новинки</Link></li>
+                        <li>
+                            <Link to="/">{t('productLink1')}</Link>
+                        </li>
+                        <li>
+                            <Link to="/">{t('productLink2')}</Link>
+                        </li>
+                        <li>
+                            <Link to="/vaccine">{t('productLink4')}</Link>
+                        </li>
+                        <li>
+                            <Link to="/products">{t('productLink1')}</Link>
+                        </li>
+                        <li>
+                            <Link to="/productNew">{t('productLink5')}</Link>
+                        </li>
                     </ul>
                 </div>
                 <div className={styles.container}>
-                    <h2>Новинки</h2>
-                    <div className={styles.selector_wrapper}>
-                        <p>Сортировать по:</p>
-                        <select className={styles.selector}>
-                            <option value="">Все</option>
-                            <option value="">А-Я</option>
-                            <option value="">А-Я</option>
-                            <option value="">А-Я</option>
-                        </select>
-                    </div>
+                    <h2>Продукция</h2>
+                    <ProductFilter
+                        options={['Курица', 'Овцы', 'Коровы', 'Лошади', 'Свиньи', 'Собака']}
+                        products={products}
+                    />
+
                     <div className={styles.wrapperCard}>
-                        {displayCards(isHomePage, data.products, 16) &&
-                            displayCards(isHomePage, data.products, 16).map((el) => (
-                                <ProductCard key={el.id} {...el} />
+                        {products &&
+                            products.map((product) => (
+                                <ProductCard
+                                    key={product.id}
+                                    title={product.name}
+                                    description={product.short_description}
+                                    img_product={product.img_product}
+                                    id={product.id}
+                                    types={product.icon_animal}
+                                />
                             ))}
                     </div>
+                    {products.length > minProductsToShowPagination && (
+                        <ReactPaginate
+                            pageCount={Math.ceil(products.length / productsPerPage)}
+                            pageRangeDisplayed={5}
+                            marginPagesDisplayed={2}
+                            onPageChange={handlePageClick}
+                            containerClassName={styles.pagination}
+                            activeClassName={styles.active}
+                            previousLabel={'Назад'}
+                            nextLabel={'Вперёд'}
+                        />
+                    )}
                     <div className={styles.button_wrapper}>
                         {isHomePage && (
-                            <Link to={"/products"}>
+                            <Link to={'/products'}>
                                 <Button className="button" withArrow>
                                     Смотреть все
                                 </Button>
@@ -55,4 +91,5 @@ const ProductNew = ({ isHomePage }) => {
         </PageBlock>
     );
 };
-export default ProductNew;
+
+export default ProductsBlock;

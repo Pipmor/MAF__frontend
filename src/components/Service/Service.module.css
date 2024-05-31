@@ -1,27 +1,73 @@
+/* Общие стили */
 .servicesContainer {
-    margin-left: 20em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.servicesContainer h3 {
-    font-size: 1.5em;
+.topGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Два столбца */
+    gap: 20px; /* Промежуток между элементами */
+    margin-bottom: 20px;
 }
 
-.companyInfo,
-.additionalInfo,
-.qualityInfo,
-.contactInfo {
-    margin-bottom: 10px;
+.bottomGrid {
+    display: grid;
+    grid-template-columns: 1fr; /* Один столбец */
+    gap: 20px; /* Промежуток между элементами */
+    margin-bottom: 20px;
 }
 
-.additionalInfo {
+.topItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #26B9A8;
+    border-radius: 20px;
+    width: 40em;
     margin-top: 10px;
 }
 
-.companyInfo,
-.additionalInfo {
-    font-weight: bold;
+.bottomItem {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #26B9A8;
+    border-radius: 20px;
+    width: 81em;
+    margin-top: 10px;
 }
 
-h3 {
-    margin-bottom: 10px;
+.servicesImage {
+    max-width: 100%;
+    height: 50em;
+    max-height: 200px;
+}
+
+.servicesImg {
+    max-width: 200px;
+    margin-right: 20px;
+}
+
+.servicesDescription {
+    margin-top: 10px;
+    flex: 1;
+}
+.servicesTitle {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Медиа-запрос */
+@media screen and (min-width: 400px) and (max-width: 1024px) {
+    .topItem {
+        width: 90%;
+    }
+    .bottomItem {
+        width: 90%;
+    }
 }

@@ -2,14 +2,15 @@
   display: flex;
   justify-content: space-between;
   background-color: var(--background-color-primary);
-  width: 400px;
+  width: 90%; /* Ширина блока будет 90% от ширины родительского контейнера */
+  max-width: 400px; /* Максимальная ширина блока */
   padding: 8px 16px;
   border-radius: 20px;
 }
 
 .input {
   display: block;
-  width: 100%;
+  width: 70%; /* Ширина поля ввода будет 70% от ширины блока .search */
   border: none;
   background-color: var(--background-color-primary);
   outline: none;
@@ -20,10 +21,7 @@
   letter-spacing: 0em;
   text-align: left;
 }
-/* 
-.input:focus {
-  border: none;
-} */
+
 .button {
   display: flex;
   align-items: center;
@@ -36,4 +34,16 @@
 .icon {
   width: 24px;
   height: 24px;
+}
+
+/* Медиа-запрос для адаптации на мобильных устройствах */
+@media screen and (min-width: 400px) and (max-width: 1024px) {
+  .search {
+    width: 90%;
+    max-width: none; /* Убираем максимальную ширину */
+  }
+
+  .input {
+    width: 60%; /* Уменьшаем ширину поля ввода для лучшего отображения на устройствах с маленькими экранами */
+  }
 }

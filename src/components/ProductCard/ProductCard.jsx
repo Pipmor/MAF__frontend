@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./ProductCard.module.css";
-import {AnimalTypsBlock} from "../AnimalTypsBlock/AnimalTypsBlock"; // Импорт компонента с иконками
 
 const ProductCard = ({ title, description, img_product, id, types }) => {
     return (
@@ -13,8 +12,10 @@ const ProductCard = ({ title, description, img_product, id, types }) => {
                 <div className={styles.textBox}>
                     <p className={styles.productCardTitle}>{title}</p>
                     <p className={styles.productCardDescription}>{description}</p>
+                    {types.map((icon, index) => (
+                        <img key={index} className={styles.icon} src={icon} alt={`icon-${index}`} />
+                    ))}
                 </div>
-                <AnimalTypsBlock types={types} />
             </div>
         </Link>
     );

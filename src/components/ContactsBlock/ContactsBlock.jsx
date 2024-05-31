@@ -8,6 +8,7 @@ import personIcon from "../../assets/icons/contact_icons/personIcon.png";
 import map from "../../assets/images/map.png";
 import useSWR from "swr";
 import axiosPrint from "../../api/axiosPrint.js";
+import {useTranslation} from "react-i18next";
 
 const fetcher = async (url) => {
     try {
@@ -20,14 +21,15 @@ const fetcher = async (url) => {
 };
 
 const ContactsBlock = () => {
+    const { t } = useTranslation();
     const { data: contacts, error } = useSWR("/blog/contact", fetcher);
 
     if (error) {
-        return <div>Ошибка при загрузке контактов.</div>;
+        return <div>{t('error1')}</div>;
     }
 
     if (!contacts) {
-        return <div>Загрузка...</div>;
+        return <div>{t('loading')}</div>;
     }
 
     return (
@@ -35,25 +37,25 @@ const ContactsBlock = () => {
             <ul className={styles.cardList}>
                 <ContactCard
                     title=""
-                    subtitle="Электронная почта"
+                    subtitle={t('contactsEmail')}
                     iconURL={mailIcon}
                     content={contacts[0].email}
                 />
                 <ContactCard
                     title=""
-                    subtitle="Телефон"
+                    subtitle={t('contactsPhone')}
                     iconURL={phoneIcon}
                     content={contacts[0].phone}
                 />
                 <ContactCard
                     title=""
-                    subtitle="Адрес"
+                    subtitle={t('contactsAddress')}
                     iconURL={locationIcon}
                     content={contacts[0].address}
                 />
                 <ContactCard
                     title=""
-                    subtitle="Директор"
+                    subtitle={t('contactsDirector')}
                     iconURL={personIcon}
                     content={contacts[0].owner}
                 />

@@ -5,7 +5,7 @@ import event3 from "../../assets/press/event3.png";
 const eventsData = [
   {
     id: 1,
-    title: "News МИРАГРОФАРМ поздравляет с Рамаданом!",
+    title: "Publish МИРАГРОФАРМ поздравляет с Рамаданом!",
     date: "2024-03-26",
     description:
       "Lorem ipsum dolor sit amet consectetur. Sed urna purus scelerisque venenatis. Magna pellentesque ut turpis at ut aliquam ullamcorper. Semper sed placerat pharetra ac sem consequat. Egestas leo fames rutrum tristique nec interdum mauris varius.",

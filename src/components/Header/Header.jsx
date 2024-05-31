@@ -16,7 +16,6 @@ const Header = () => {
     { destination: "news", caption: t("press") },
     { destination: "questions", caption: t("AnswerQuestions") },
     { destination: "contacts", caption: t("contacts") },
-    { destination: "productDetail", caption: "ТЩФЗ" },
   ];
 
   return (

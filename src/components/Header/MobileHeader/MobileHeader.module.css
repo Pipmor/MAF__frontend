@@ -14,7 +14,7 @@
 .mobileHeader,
 .button,
 .wrapperMenuBar {
-  background-color: var(--bwa);
+  background-color: #26b9a8;
 }
 
 .button {
@@ -24,10 +24,15 @@
   margin: 0;
 }
 
+.language {
+  margin-right: 2em;
+}
+
 .wrapperMenuBar {
   position: fixed;
   top: 0;
   height: 100%;
+  width: 100%;
   left: 0;
   right: 0;
   transition: transform 400ms ease-in-out;

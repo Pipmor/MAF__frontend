@@ -5,7 +5,6 @@ import {useTranslation} from "react-i18next";
 
 export const ProductComponent = ({ title, image, path }) => {
     const { t } = useTranslation();
-  console.log("image>>>", image);
   return (
     <div className={style.product}>
       <img src={image} alt="image" className={style.img} />

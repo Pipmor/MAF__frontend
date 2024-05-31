@@ -4,7 +4,6 @@ import { Outlet } from "react-router-dom";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import Modal from "../Modal/Modal";
-import ContactUs from "../ContactUs/ContactUs";
 import Breadcrumbs from "../Breadcrumbs/Breadcrumbs";
 import { ModalContext } from "../Modal/ModalContext";
 import Widget from "../Widget/Widget";
@@ -22,7 +21,6 @@ const Layout = () => {
         <main className={styles.main}>
           <Outlet />
           {showModal && <Modal />}
-          <ContactUs />
         </main>
         <Widget />
         <Footer />

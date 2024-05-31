@@ -73,3 +73,26 @@
     height: 500px;
     z-index: 3;
 }
+
+@media only screen and (min-width: 400px) and (max-width: 1024px) {
+    .content {
+        margin-right: 2em;
+    }
+
+    .title {
+        font-size: 35px;
+    }
+
+    .subtitle {
+        font-size: 15px;
+    }
+
+    .watchButton {
+        font-size: 0.9em;
+        margin-top: 12px;
+    }
+
+    .youtubePlayer {
+        max-width: none;
+    }
+}

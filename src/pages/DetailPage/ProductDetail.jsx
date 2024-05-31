@@ -30,13 +30,13 @@ const ProductDetail = ({ isHomePage }) => {
                 <div>
                     {product ? (
                         <div className={styles.product}>
-                            <img src={product.img_product} alt={product.name} />
+                            <img className={styles.imgProduct} src={product.img_product} alt={product.name} />
                             <div className={styles.productInfo}>
                                 <h3>{product.name}</h3>
                                 <p>{product.short_description}</p>
                                 <div className={styles.iconContainer}>
                                     {product.icon_animal.map((icon, index) => (
-                                        <img key={index} src={icon} alt={`Icon ${index + 1}`} />
+                                        <img key={index} className={styles.icon} src={icon.icon} alt={`Icon ${index + 1}`} />
                                     ))}
                                 </div>
                                 <Button className="button buyButton" onClick={openModal}>

@@ -1,3 +1,4 @@
+/* Общие стили */
 .newsContainer {
   display: flex;
 }
@@ -29,23 +30,22 @@
 
 .newsCard {
   display: flex;
-  width: 60em;
-  height: 15em;
+  flex-direction: column; /* Изменено на вертикальное расположение элементов */
+  width: 100%; /* Ширина занимает всю доступную ширину */
   border-radius: 10px;
-  padding: 20px
+  padding: 20px;
+  box-sizing: border-box; /* Обеспечивает правильное вычисление ширины и высоты с учетом отступов и границ */
 }
 
 .newsCard img {
-  width: 190px;
-  height: 190px;
+  width: 100%; /* Изображение занимает всю доступную ширину */
+  max-height: 190px; /* Максимальная высота изображения */
   object-fit: cover;
   border-radius: 10px;
 }
 
 .newsText {
-  flex: 1;
-  padding: 40px 20px 0;
-
+  padding: 20px;
 }
 
 .newsText h5 {
@@ -76,4 +76,9 @@
   color: #fff;
 }
 
-
+/* Медиа-запрос для адаптации на устройствах с шириной от 400px до 1024px */
+@media screen and (min-width: 400px) and (max-width: 1024px) {
+  .newsCard {
+    width: calc(50% - 20px); /* Уменьшаем ширину карточек до половины ширины контейнера с учетом отступов */
+  }
+}

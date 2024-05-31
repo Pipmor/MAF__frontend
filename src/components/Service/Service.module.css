@@ -1,5 +1,4 @@
-/* Service.module.css */
-
+/* Общие стили */
 .servicesContainer {
     display: flex;
     flex-direction: column;
@@ -63,3 +62,12 @@
     margin-top: 10px;
 }
 
+/* Медиа-запрос */
+@media screen and (min-width: 400px) and (max-width: 1024px) {
+    .topItem {
+        width: 90%;
+    }
+    .bottomItem {
+        width: 90%;
+    }
+}

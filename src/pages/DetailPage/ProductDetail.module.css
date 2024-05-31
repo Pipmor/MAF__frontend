@@ -1,16 +1,3 @@
-.container{
-  display: flex;
-  gap: 20px;
-  flex-direction: column;
-  position: relative;
-  width: fit-content;
-}
-
-.gridContainer {
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-  gap: 20px;
-}
 .container {
   display: grid;
   grid-template-columns: 1fr 3fr;
@@ -19,7 +6,6 @@
 
 .wrapper {
   text-align: start;
-
 }
 
 .leftColumn {
@@ -39,9 +25,10 @@
   align-items: center;
 }
 
-.product img {
-  width: 295px;
-  height: 295px;
+.imgProduct {
+  width: 100%; /* Сделаем изображение растягивающимся на всю ширину */
+  max-width: 295px; /* Ограничим максимальную ширину изображения */
+  height: auto; /* Автоматическая высота для сохранения пропорций */
   border-radius: 11.2px;
   border: 1.4px;
   opacity: 1;
@@ -66,7 +53,7 @@
 .iconContainer {
   display: flex;
   gap: 10px;
-  width: 300px;
+  max-width: 300px; /* Ограничим максимальную ширину контейнера иконок */
   height: 70px;
 }
 
@@ -85,17 +72,26 @@
   margin-bottom: 20px;
 }
 
+.iconContainer {
+  width: 2em;
+}
+
+/* Базовые стили для wrapperCard */
+.wrapperCard {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
 
 @media screen and (max-width: 1100px){
   .wrapperCard {
-    display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 16px;
   }
 }
+
 @media screen and (max-width: 900px){
   .wrapperCard {
-    display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 8px;
   }

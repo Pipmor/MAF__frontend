@@ -18,3 +18,12 @@
     padding: 5px;
     border-radius: 10px;
 }
+
+/* Медиа-запрос для адаптации на устройствах с шириной от 400px до 1024px */
+@media screen and (min-width: 400px) and (max-width: 1024px) {
+    .selector_wrapper {
+        justify-content: flex-end; /* Выравниваем элементы по центру */
+        margin-left: 0; /* Убираем отступ слева */
+        width: 100%; /* Ширина занимает всю доступную ширину */
+    }
+}

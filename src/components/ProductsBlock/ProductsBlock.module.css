@@ -1,4 +1,5 @@
-.container{
+/* Общие стили */
+.container {
     display: flex;
     gap: 20px;
     flex-direction: column;
@@ -12,7 +13,7 @@
     gap: 20px;
 }
 
-.wrapper{
+.wrapper {
     text-align: start;
 }
 
@@ -30,18 +31,17 @@
     font-size: 2em;
 }
 
-.wrapperCard{
+.wrapperCard {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
 
-.button_wrapper{
+.button_wrapper {
     width: 100%;
     display: flex;
     justify-content: flex-end;
 }
-
 
 .pagination {
     display: flex;
@@ -63,17 +63,11 @@
     color: #fff;
 }
 
-@media screen and (max-width: 1100px){
-    .wrapperCard {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 16px;
-    }
-}
-@media screen and (max-width: 900px){
+/* Медиа-запрос для адаптации на устройствах с шириной от 400px до 1024px */
+@media screen and (min-width: 400px) and (max-width: 1024px) {
     .wrapperCard {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 8px;
+        gap: 16px;
     }
 }

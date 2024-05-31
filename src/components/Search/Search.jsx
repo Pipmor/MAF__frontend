@@ -3,8 +3,10 @@ import search from '../../assets/icons/header_icons/search.svg';
 import styles from './Search.module.css';
 import ProductDropdown from '../ProductDropdown/Dropdown';
 import { getProductsData } from '../../api/getProductsData.js';
+import {useTranslation} from "react-i18next";
 
 const Search = () => {
+    const { t } = useTranslation();
     const [searchTerm, setSearchTerm] = useState('');
     const [searchResults, setSearchResults] = useState([]);
     const [showDropdown, setShowDropdown] = useState(false);
@@ -48,7 +50,7 @@ const Search = () => {
             <input
                 type="text"
                 className={styles.input}
-                placeholder="Найти интересующий товар"
+                placeholder={t('search')}
                 value={searchTerm}
                 onChange={handleInputChange}
                 ref={inputRef}

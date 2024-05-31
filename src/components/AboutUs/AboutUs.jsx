@@ -37,10 +37,6 @@ const AboutUs = () => {
             )}
 
             <div className={styles.mission}>
-                <h3 className={styles.title}>{t('aboutTitle')}</h3>
-                <p className={styles.paragraph}>{t('aboutIntro')}</p><br/>
-                <p className={styles.paragraph}>{t('aboutHistory')}</p><br/>
-                <p className={styles.paragraph}>{t('aboutJoinUs')}</p><br/>
                 <p className={styles.paragraph}>{t('aboutMaf')}</p><br/>
             </div>
 

@@ -27,3 +27,11 @@
     color: #000000; /* Черный цвет текста */
     font-weight: bold;
 }
+
+@media screen and (min-width: 400px) and (max-width: 1024px) {
+    .dropdown {
+        width: 20em; /* Занимает всю доступную ширину */
+        margin-top: 40px; /* Убираем отступ сверху */
+        margin-right: 25px;
+    }
+}

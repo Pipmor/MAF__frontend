@@ -75,7 +75,7 @@ const ProductsBlock = ({ isHomePage }) => {
                                     description={product.short_description}
                                     img_product={product.img_product}
                                     id={product.id}
-                                    types={product.icon_animal}
+                                    types={product.icon_animal.map(animal => animal.icon)} // Изменение здесь
                                 />
                             ))
                         ) : (

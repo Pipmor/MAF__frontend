@@ -8,6 +8,7 @@ import Breadcrumbs from "../Breadcrumbs/Breadcrumbs";
 import { ModalContext } from "../Modal/ModalContext";
 import Widget from "../Widget/Widget";
 import ScrollToTop from "../ScrollToTop/ScrollToTop";
+import Form from "../Form/Form.jsx";
 
 const Layout = () => {
   const [showModal, setShowModal] = useState(false);
@@ -21,6 +22,7 @@ const Layout = () => {
         <main className={styles.main}>
           <Outlet />
           {showModal && <Modal />}
+          <Form/>
         </main>
         <Widget />
         <Footer />

@@ -9,12 +9,12 @@ export const data = [
   },
   {
     name: "productLink3",
-    link: "/",
+    link: "/Feed",
     image: img2,
   },
   {
     name: "productLink4",
-    link: "/",
+    link: "/vaccine",
     image: img2,
   },
 ];

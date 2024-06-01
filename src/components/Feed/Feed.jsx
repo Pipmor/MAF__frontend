@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PageBlock from '../PageBlock/PageBlock.jsx';
-import styles from './Vaccine.module.css';
+import styles from './Feed.module.css';
 import ProductCard from '../ProductCard/ProductCard.jsx';
 import { Link } from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
@@ -8,7 +8,7 @@ import { getProductsData } from '../../api/getProductsData.js';
 import ProductFilter from '../ProductFilter/ProductFilter.jsx';
 import { useTranslation } from 'react-i18next';
 
-const Vaccine = ({ isHomePage }) => {
+const Feed = ({ isHomePage }) => {
     const { t } = useTranslation();
     const [products, setProducts] = useState([]);
     const [filteredProducts, setFilteredProducts] = useState([]);
@@ -64,7 +64,7 @@ const Vaccine = ({ isHomePage }) => {
                     </ul>
                 </div>
                 <div className={styles.container}>
-                    <p className={styles.title}>{t('productLink4')}</p>
+                    <p className={styles.title}>{t('productLink3')}</p>
                     <ProductFilter onFilterChange={handleFilterChange} />
                     <div className={styles.wrapperCard}>
                         {currentProducts.length > 0 ? (
@@ -100,4 +100,4 @@ const Vaccine = ({ isHomePage }) => {
     );
 };
 
-export default Vaccine;
+export default Feed;

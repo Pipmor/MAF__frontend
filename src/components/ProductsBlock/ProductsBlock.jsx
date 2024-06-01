@@ -64,7 +64,7 @@ const ProductsBlock = ({ isHomePage }) => {
                     </ul>
                 </div>
                 <div className={styles.container}>
-                    <p className={styles.title}>Продукция</p>
+                    <p className={styles.title}>{t('productLink1')}</p>
                     <ProductFilter onFilterChange={handleFilterChange} />
                     <div className={styles.wrapperCard}>
                         {currentProducts.length > 0 ? (

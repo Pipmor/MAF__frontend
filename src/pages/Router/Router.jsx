@@ -15,6 +15,8 @@ import NewsVideo from "../../components/NewsVideo/NewsVideo.jsx";
 import Vaccine from "../../components/Vaccine/Vaccine.jsx";
 import ProductNew from "../../components/ProductNew/ProductNew.jsx";
 import ServicePage from "../ServicePage/ServicePage.jsx";
+import Feed from "../../components/Feed/Feed.jsx";
+import VeterenarDrugs from "../../components/VeterenarDrugs/VeterenarDrugs.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -45,8 +47,16 @@ export const router = createBrowserRouter([
         element: <Vaccine />,
       },
       {
+        path: 'feed',
+        element: <Feed />,
+      },
+      {
         path: 'productNew',
         element: <ProductNew />,
+      },
+      {
+        path: 'veterenarDrugs',
+        element: <VeterenarDrugs />,
       },
       {
         path: 'productDetail',

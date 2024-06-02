@@ -19,19 +19,27 @@ const Vaccine = ({ isHomePage }) => {
         const fetchProducts = async () => {
             try {
                 const productsData = await getProductsData();
-                setProducts(productsData);
-                setFilteredProducts(productsData); // Initialize with all products
+
+                // Локализация данных
+                const localizedProducts = productsData.map(product => ({
+                    ...product,
+                    name: t(`animals.${product.id}`),
+                    short_description: t(`descriptions.${product.id}`)
+                }));
+
+                setProducts(localizedProducts);
+                setFilteredProducts(localizedProducts);
             } catch (error) {
                 console.error('Failed to fetch products:', error);
             }
         };
 
         fetchProducts();
-    }, []);
+    }, [t]);
 
     const handleFilterChange = (filteredProducts) => {
         setFilteredProducts(filteredProducts);
-        setCurrentPage(0); // Reset to first page on filter change
+        setCurrentPage(0);
     };
 
     const handlePageClick = ({ selected }) => {
@@ -75,11 +83,11 @@ const Vaccine = ({ isHomePage }) => {
                                     description={product.short_description}
                                     img_product={product.img_product}
                                     id={product.id}
-                                    types={product.icon_animal.map(animal => animal.icon)} // Изменение здесь
+                                    types={product.icon_animal.map(animal => animal.icon)}
                                 />
                             ))
                         ) : (
-                            <p className={styles.noProducts}>Нет продуктов с выбранным видом животного</p>
+                            <p className={styles.noProducts}>{t('loading')}</p>
                         )}
                     </div>
                     {filteredProducts.length > productsPerPage && (

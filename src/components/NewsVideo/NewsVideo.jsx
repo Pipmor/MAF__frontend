@@ -36,7 +36,7 @@ const NewsPage = () => {
                 <div className={styles.leftColumn}>
                     <ul>
                         <li><Link to="/events">{t('newsLink1')}</Link></li>
-                        <li><Link to="/news">{t('newsLink2')}</Link></li>
+                        <li><Link to="/publish">{t('newsLink2')}</Link></li>
                         <li><Link to="/calendar">{t('newsLink4')}</Link></li>
                         <li><Link to="/newsvideo">{t('newsLink5')}</Link></li>
                     </ul>

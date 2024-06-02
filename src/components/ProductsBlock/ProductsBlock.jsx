@@ -75,11 +75,11 @@ const ProductsBlock = ({ isHomePage }) => {
                                     description={product.short_description}
                                     img_product={product.img_product}
                                     id={product.id}
-                                    types={product.icon_animal.map(animal => animal.icon)} // Изменение здесь
+                                    types={product.icon_animal.map(animal => animal.icon)}
                                 />
                             ))
                         ) : (
-                            <p className={styles.noProducts}>Нет продуктов с выбранным видом животного</p>
+                            <p className={styles.noProducts}>{t('loading')}</p>
                         )}
                     </div>
                     {filteredProducts.length > productsPerPage && (

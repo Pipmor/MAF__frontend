@@ -12,6 +12,34 @@
   gap: 16px;
 }
 
+.modalBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* полупрозрачный черный фон */
+  z-index: 1000; /* выше всех других элементов */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalContent {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* тень */
+}
+
+.modalContent h2 {
+  margin-top: 0;
+}
+
+.modalContent Button {
+  margin-top: 10px;
+}
+
 .button {
   background-color: #FEB701;
 }

@@ -6,6 +6,7 @@
   max-width: 400px; /* Максимальная ширина блока */
   padding: 8px 16px;
   border-radius: 20px;
+  margin-left: 2em;
 }
 
 .input {

@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { getProductsData } from '../../api/getProductsData.js';
 import styles from './ProductFilter.module.css';
+import {useTranslation} from "react-i18next";
 
 const ProductFilter = ({ onFilterChange }) => {
+    const { t } = useTranslation();
     const [products, setProducts] = useState([]);
     const [selectedAnimal, setSelectedAnimal] = useState('all');
 
@@ -11,22 +13,22 @@ const ProductFilter = ({ onFilterChange }) => {
             try {
                 const productsData = await getProductsData();
                 setProducts(productsData);
-                onFilterChange(productsData); // Initialize with all products
+                onFilterChange(productsData);
             } catch (error) {
                 console.error('Failed to fetch products:', error);
             }
         };
 
         fetchProducts();
-    }, []); // Removed onFilterChange from dependencies
+    }, []);
 
     const animals = [
-        { id: 1, name: 'Коровы' },
-        { id: 3, name: 'Лошади' },
-        { id: 4, name: 'Овцы' },
-        { id: 5, name: 'Курицы' },
-        { id: 6, name: 'Свиньи' },
-        { id: 7, name: 'Собаки' }
+        { id: 1, name: t('cows') },
+        { id: 3, name: t('horses') },
+        { id: 4, name: t('sheep') },
+        { id: 5, name: t('chickens') },
+        { id: 6, name: t('pigs') },
+        { id: 7, name: t('dogs') }
     ];
 
     const handleAnimalChange = (event) => {
@@ -45,7 +47,7 @@ const ProductFilter = ({ onFilterChange }) => {
 
     return (
         <div className={styles.selector_wrapper}>
-            <p>Сортировать по:</p>
+            <p>{t('sortBy')}</p>
             <select className={styles.selector} value={selectedAnimal} onChange={handleAnimalChange}>
                 <option value="all">Все</option>
                 {animals.map((animal) => (

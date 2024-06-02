@@ -79,7 +79,7 @@ const VeterenarDrugs = ({ isHomePage }) => {
                                 />
                             ))
                         ) : (
-                            <p className={styles.noProducts}>Нет продуктов с выбранным видом животного</p>
+                            <p className={styles.noProducts}>{t('loading')}</p>
                         )}
                     </div>
                     {filteredProducts.length > productsPerPage && (

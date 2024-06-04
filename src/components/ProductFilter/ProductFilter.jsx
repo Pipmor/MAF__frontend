@@ -49,7 +49,7 @@ const ProductFilter = ({ onFilterChange }) => {
         <div className={styles.selector_wrapper}>
             <p>{t('sortBy')}</p>
             <select className={styles.selector} value={selectedAnimal} onChange={handleAnimalChange}>
-                <option value="all">Все</option>
+                <option value="all">{t('all')}</option>
                 {animals.map((animal) => (
                     <option key={animal.id} value={animal.id}>
                         {animal.name}

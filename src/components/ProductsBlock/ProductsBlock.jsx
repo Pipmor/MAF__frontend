@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import i18n from 'i18next'; // Assuming i18next is initialized elsewhere
+import { useTranslation } from 'react-i18next';
 import PageBlock from '../PageBlock/PageBlock.jsx';
 import styles from './ProductsBlock.module.css';
 import ProductCard from '../ProductCard/ProductCard.jsx';
@@ -6,7 +8,6 @@ import { Link } from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
 import { getProductsData } from '../../api/getProductsData.js';
 import ProductFilter from '../ProductFilter/ProductFilter.jsx';
-import { useTranslation } from 'react-i18next';
 
 const ProductsBlock = ({ isHomePage }) => {
     const { t } = useTranslation();
@@ -71,8 +72,8 @@ const ProductsBlock = ({ isHomePage }) => {
                             currentProducts.map((product) => (
                                 <ProductCard
                                     key={product.id}
-                                    title={product.name}
-                                    description={product.short_description}
+                                    title={product.name} // Tra}slate product name
+                                    description={t(product.short_description)} // Translate product description
                                     img_product={product.img_product}
                                     id={product.id}
                                     types={product.icon_animal.map(animal => animal.icon)}

@@ -8,8 +8,10 @@ import { getProductsData } from "../../api/getProductsData.js";
 import Tabs from "../../components/Tabs/Tabs.jsx";
 import TabsData from "../../components/Tabs/TabsData.jsx";
 import { useModal } from "../../components/Modal/ModalContext";
+import {useTranslation} from "react-i18next";
 
 const ProductDetail = ({ isHomePage }) => {
+    const { t } = useTranslation();
     const { productId } = useParams();
     const { data: productsData } = useSWRImmutable("/products/", getProductsData);
     const { openModal } = useModal();
@@ -33,7 +35,7 @@ const ProductDetail = ({ isHomePage }) => {
                             <img className={styles.imgProduct} src={product.img_product} alt={product.name} />
                             <div className={styles.productInfo}>
                                 <h3>{product.name}</h3>
-                                <p>{product.short_description}</p>
+                                <p>{t(product.short_description)}</p>
                                 <div className={styles.iconContainer}>
                                     {product.icon_animal.map((icon, index) => (
                                         <img key={index} className={styles.icon} src={icon.icon} alt={`Icon ${index + 1}`} />

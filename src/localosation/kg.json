@@ -42,6 +42,7 @@
   "close": "Закрыть",
   "contactsPhone": "Телефон",
   "contactsAddress": "Мекен-жай",
+  "contactsEmail": "Электрондук почтасы",
   "contactsDirector": "Директор",
 
   "productVaccines": "Вакциналар",
@@ -49,6 +50,7 @@
   "watchVideo": "Видео көрүү",
 
   "sortBy": "Иретке келтирүү:",
+  "all": "баары",
   "cows": "Уйлар",
   "horses": "Аттар",
   "sheep": "Койлор",

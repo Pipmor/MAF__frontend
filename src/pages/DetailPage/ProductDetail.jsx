@@ -24,9 +24,18 @@ const ProductDetail = ({ isHomePage }) => {
             <div className={styles.container}>
                 <div className={styles.leftColumn}>
                     <ul>
-                        <li><Link to="/">Ветеринарные препараты</Link></li>
-                        <li><Link to="/">Корма и кормовые добавки</Link></li>
-                        <li><Link to="/products">Продукты</Link></li>
+                        <li>
+                            <Link key="veterenarDrugs" to="/veterenarDrugs">{t('productLink2')}</Link>
+                        </li>
+                        <li>
+                            <Link key="vaccine" to="/vaccine">{t('productLink4')}</Link>
+                        </li>
+                        <li>
+                            <Link key="feed" to="/feed">{t('productLink3')}</Link>
+                        </li>
+                        <li>
+                            <Link key="productNew" to="/productNew">{t('productLink5')}</Link>
+                        </li>
                     </ul>
                 </div>
                 <div>

@@ -19,23 +19,15 @@ const Vaccine = ({ isHomePage }) => {
         const fetchProducts = async () => {
             try {
                 const productsData = await getProductsData();
-
-                // Локализация данных
-                const localizedProducts = productsData.map(product => ({
-                    ...product,
-                    name: t(`animals.${product.id}`),
-                    short_description: t(`descriptions.${product.id}`)
-                }));
-
-                setProducts(localizedProducts);
-                setFilteredProducts(localizedProducts);
+                setProducts(productsData);
+                setFilteredProducts(productsData); // Initialize with all products
             } catch (error) {
                 console.error('Failed to fetch products:', error);
             }
         };
 
         fetchProducts();
-    }, [t]);
+    }, []);
 
     const handleFilterChange = (filteredProducts) => {
         setFilteredProducts(filteredProducts);
@@ -62,9 +54,6 @@ const Vaccine = ({ isHomePage }) => {
                         </li>
                         <li>
                             <Link key="feed" to="/feed">{t('productLink3')}</Link>
-                        </li>
-                        <li>
-                            <Link key="products" to="/products">{t('productLink1')}</Link>
                         </li>
                         <li>
                             <Link key="productNew" to="/productNew">{t('productLink5')}</Link>

@@ -1,23 +1,31 @@
+// Ваш компонент NewsVideo.jsx
+
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import ReactPaginate from 'react-paginate'; // Импорт компонента пагинации
+import ReactPaginate from 'react-paginate';
 import styles from './NewsVideo.module.css';
-import { getProductsData } from '../../api/getNewsVideo.js';
+import { getNewsVideo } from '../../api/getNewsVideo.js';
 import PageBlock from "../PageBlock/PageBlock.jsx";
 import { useTranslation } from "react-i18next";
 
-const NewsPage = () => {
+const NewsVideo = () => {
     const { t } = useTranslation();
     const [videos, setVideos] = useState([]);
     const [pageNumber, setPageNumber] = useState(0);
-    const videosPerPage = 10; // Количество видео на странице
-    const minVideosToShowPagination = 5; // Минимальное количество видео для показа пагинации
+    const videosPerPage = 10;
+    const minVideosToShowPagination = 5;
 
     useEffect(() => {
         const fetchData = async () => {
-            const data = await getProductsData();
-            if (data) {
-                setVideos(data);
+            try {
+                const data = await getNewsVideo();
+                if (Array.isArray(data)) {
+                    setVideos(data);
+                } else {
+                    console.error('Data received is not an array:', data);
+                }
+            } catch (error) {
+                console.error('Error fetching video data:', error);
             }
         };
 
@@ -28,7 +36,7 @@ const NewsPage = () => {
         setPageNumber(selected);
     };
 
-    const displayedVideos = videos.slice(pageNumber * videosPerPage, (pageNumber + 1) * videosPerPage);
+    const displayedVideos = Array.isArray(videos) ? videos.slice(pageNumber * videosPerPage, (pageNumber + 1) * videosPerPage) : [];
 
     return (
         <PageBlock>
@@ -68,4 +76,4 @@ const NewsPage = () => {
     );
 };
 
-export default NewsPage;
+export default NewsVideo;

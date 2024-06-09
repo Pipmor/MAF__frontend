@@ -57,9 +57,6 @@ const ProductsBlock = ({ isHomePage }) => {
                             <Link key="feed" to="/feed">{t('productLink3')}</Link>
                         </li>
                         <li>
-                            <Link key="products" to="/products">{t('productLink1')}</Link>
-                        </li>
-                        <li>
                             <Link key="productNew" to="/productNew">{t('productLink5')}</Link>
                         </li>
                     </ul>

@@ -55,7 +55,6 @@ const NewsVideo = () => {
                             <a href={video.link} target="_blank" rel="noopener noreferrer">
                                 <img src={video.img_preview} alt={video.name} />
                             </a>
-                            <p>{video.name}</p>
                         </div>
                     ))}
                     {videos.length > minVideosToShowPagination && (

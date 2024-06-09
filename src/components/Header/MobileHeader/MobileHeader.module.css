@@ -66,17 +66,24 @@
 
 .accordionButton {
   flex: 2;
-}
-
-.accordionButton {
   display: flex;
   justify-content: flex-end;
   cursor: pointer;
 }
+
 .menuListContainer {
   margin-top: 26px;
   padding-left: 10px;
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+
+.search {
+  margin-top: 20px;
+}
+
+.closeButton {
+  align-self: flex-end;
+  font-size: 1.5em;
 }

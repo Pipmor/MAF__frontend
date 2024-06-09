@@ -24,8 +24,8 @@
   "newsLink1": "Тойлор",
   "newsLink2": "Жарыялар",
   "newsLink3": "Жаңылыктар",
-  "newsLink5": "Календарь",
-  "newsLink6": "Видео",
+  "newsLink4": "Жылсанак",
+  "newsLink5": "Видео",
 
   "emailName": "Аты*",
   "emailReq": "Электрондук почта*",
@@ -42,11 +42,21 @@
   "close": "Закрыть",
   "contactsPhone": "Телефон",
   "contactsAddress": "Мекен-жай",
+  "contactsEmail": "Электрондук почтасы",
   "contactsDirector": "Директор",
 
   "productVaccines": "Вакциналар",
   "bannerText": "Жакшы жакшылыктагы ветеринардык дарыоолор мен эркин аймагыштардын көпчүлүктү тандоо.",
   "watchVideo": "Видео көрүү",
+
+  "sortBy": "Иретке келтирүү:",
+  "all": "баары",
+  "cows": "Уйлар",
+  "horses": "Аттар",
+  "sheep": "Койлор",
+  "chickens": "Тооктор",
+  "pigs": "Чочколор",
+  "dogs": "Иттер",
 
   "about": "Компания",
   "press": "Пресс",

@@ -1,6 +1,6 @@
 import axiosPrint from "./axiosPrint";
 
-export const getProductsData = async () => {
-    const response = await axiosPrint.get("/products/");
+export const getService = async () => {
+    const response = await axiosPrint.get("/blog/service/");
     return response.data;
 };

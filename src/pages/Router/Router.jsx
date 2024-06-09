@@ -9,7 +9,6 @@ import Layout from "../../components/Layout/Layout.jsx";
 import ErrorPage from "../ErrorPage/ErrorPage.jsx";
 import ProductDetail from "../DetailPage/ProductDetail.jsx";
 import CalendarPage from "../../components/Сalendar/Calendar.jsx";
-import NewsPage from "../../components/Publish/Publish.jsx";
 import EventsPage from "../../components/Events/Events.jsx";
 import NewsVideo from "../../components/NewsVideo/NewsVideo.jsx";
 import Vaccine from "../../components/Vaccine/Vaccine.jsx";
@@ -17,6 +16,7 @@ import ProductNew from "../../components/ProductNew/ProductNew.jsx";
 import ServicePage from "../ServicePage/ServicePage.jsx";
 import Feed from "../../components/Feed/Feed.jsx";
 import VeterenarDrugs from "../../components/VeterenarDrugs/VeterenarDrugs.jsx";
+import Publish from "../../components/Publish/Publish.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -71,8 +71,8 @@ export const router = createBrowserRouter([
         element: <EventsPage />,
       },
       {
-        path: 'news',
-        element: <NewsPage />,
+        path: 'publish',
+        element: <Publish />,
       },
       {
         path: 'calendar',

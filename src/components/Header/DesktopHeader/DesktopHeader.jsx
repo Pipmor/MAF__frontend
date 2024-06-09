@@ -11,14 +11,6 @@ const DesktopHeader = ({ linkList }) => {
         <div className={styles.topHeaderWrapper}>
           <div className={`${styles.topHeader} container`}>
             <Search className={styles.search} />
-            <div className={styles.contacts}>
-              <a href="mailto:email@gmail.com" className={styles.email}>
-                email@gmail.com
-              </a>
-              <a href="tel: +996000000000" className={styles.tel}>
-                +996000000000
-              </a>
-            </div>
             <LanguageSelector/>
           </div>
         </div>

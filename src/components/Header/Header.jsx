@@ -13,7 +13,7 @@ const Header = () => {
     { destination: "about", caption: t("about") },
     { destination: "services", caption: t("services") },
     { destination: "products", caption: t("productLink1") },
-    { destination: "news", caption: t("press") },
+    { destination: "publish", caption: t("press") },
     { destination: "questions", caption: t("AnswerQuestions") },
     { destination: "contacts", caption: t("contacts") },
   ];

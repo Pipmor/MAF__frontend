@@ -31,7 +31,7 @@ const Vaccine = ({ isHomePage }) => {
 
     const handleFilterChange = (filteredProducts) => {
         setFilteredProducts(filteredProducts);
-        setCurrentPage(0); // Reset to first page on filter change
+        setCurrentPage(0);
     };
 
     const handlePageClick = ({ selected }) => {
@@ -56,9 +56,6 @@ const Vaccine = ({ isHomePage }) => {
                             <Link key="feed" to="/feed">{t('productLink3')}</Link>
                         </li>
                         <li>
-                            <Link key="products" to="/products">{t('productLink1')}</Link>
-                        </li>
-                        <li>
                             <Link key="productNew" to="/productNew">{t('productLink5')}</Link>
                         </li>
                     </ul>
@@ -75,11 +72,11 @@ const Vaccine = ({ isHomePage }) => {
                                     description={product.short_description}
                                     img_product={product.img_product}
                                     id={product.id}
-                                    types={product.icon_animal.map(animal => animal.icon)} // Изменение здесь
+                                    types={product.icon_animal.map(animal => animal.icon)}
                                 />
                             ))
                         ) : (
-                            <p className={styles.noProducts}>Нет продуктов с выбранным видом животного</p>
+                            <p className={styles.noProducts}>{t('loading')}</p>
                         )}
                     </div>
                     {filteredProducts.length > productsPerPage && (

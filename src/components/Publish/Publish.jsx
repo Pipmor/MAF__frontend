@@ -6,7 +6,7 @@ import { getPublishData } from '../../api/getPublishData.js';
 import PageBlock from "../PageBlock/PageBlock.jsx";
 import { useTranslation } from "react-i18next";
 
-const NewsPage = () => {
+const Publish = () => {
   const { t } = useTranslation();
   const [publishData, setPublishData] = useState([]);
   const [pageNumber, setPageNumber] = useState(0);
@@ -38,13 +38,13 @@ const NewsPage = () => {
           <div className={styles.leftColumn}>
             <ul>
               <li><Link to="/events">{t('newsLink1')}</Link></li>
-              <li><Link to="/news">{t('newsLink2')}</Link></li>
+              <li><Link to="/publish">{t('newsLink2')}</Link></li>
               <li><Link to="/calendar">{t('newsLink4')}</Link></li>
               <li><Link to="/newsvideo">{t('newsLink5')}</Link></li>
             </ul>
           </div>
           <div className={styles.cardColumn}>
-            <h2>Публикации</h2>
+            <h2>{t('newsLink2')}</h2>
             <div className={styles.newsCardContainer}>
               {products.map((news) => (
                   <div key={news.id} className={styles.newsCard}>
@@ -75,4 +75,4 @@ const NewsPage = () => {
   );
 };
 
-export default NewsPage;
+export default Publish;

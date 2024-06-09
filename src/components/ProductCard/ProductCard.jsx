@@ -1,8 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./ProductCard.module.css";
+import {useTranslation} from "react-i18next";
 
 const ProductCard = ({ title, description, img_product, id, types }) => {
+    const { t } = useTranslation();
     return (
         <Link to={`/products/${id}`} className={styles.productCardLink}>
             <div className={styles.productCard}>

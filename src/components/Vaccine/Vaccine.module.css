@@ -26,6 +26,10 @@
     color: #26B9A8;
 }
 
+.title {
+    font-size: 25px;
+}
+
 .selector_wrapper{
     display: flex;
     justify-content: flex-end;

@@ -8,8 +8,10 @@ import { getProductsData } from "../../api/getProductsData.js";
 import Tabs from "../../components/Tabs/Tabs.jsx";
 import TabsData from "../../components/Tabs/TabsData.jsx";
 import { useModal } from "../../components/Modal/ModalContext";
+import {useTranslation} from "react-i18next";
 
 const ProductDetail = ({ isHomePage }) => {
+    const { t } = useTranslation();
     const { productId } = useParams();
     const { data: productsData } = useSWRImmutable("/products/", getProductsData);
     const { openModal } = useModal();
@@ -22,9 +24,18 @@ const ProductDetail = ({ isHomePage }) => {
             <div className={styles.container}>
                 <div className={styles.leftColumn}>
                     <ul>
-                        <li><Link to="/">Ветеринарные препараты</Link></li>
-                        <li><Link to="/">Корма и кормовые добавки</Link></li>
-                        <li><Link to="/products">Продукты</Link></li>
+                        <li>
+                            <Link key="veterenarDrugs" to="/veterenarDrugs">{t('productLink2')}</Link>
+                        </li>
+                        <li>
+                            <Link key="vaccine" to="/vaccine">{t('productLink4')}</Link>
+                        </li>
+                        <li>
+                            <Link key="feed" to="/feed">{t('productLink3')}</Link>
+                        </li>
+                        <li>
+                            <Link key="productNew" to="/productNew">{t('productLink5')}</Link>
+                        </li>
                     </ul>
                 </div>
                 <div>
@@ -33,7 +44,7 @@ const ProductDetail = ({ isHomePage }) => {
                             <img className={styles.imgProduct} src={product.img_product} alt={product.name} />
                             <div className={styles.productInfo}>
                                 <h3>{product.name}</h3>
-                                <p>{product.short_description}</p>
+                                <p>{t(product.short_description)}</p>
                                 <div className={styles.iconContainer}>
                                     {product.icon_animal.map((icon, index) => (
                                         <img key={index} className={styles.icon} src={icon.icon} alt={`Icon ${index + 1}`} />

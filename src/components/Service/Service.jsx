@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import styles from './Service.module.css';
 import { getService } from '../../api/getService.js';
 import ServiceData from "./ServiceData.js";
+import i18n from "i18next";
 
 const Services = () => {
     const { t } = useTranslation();
@@ -19,7 +20,7 @@ const Services = () => {
         };
 
         fetchData();
-    }, []);
+    }, [i18n.language]);
 
     return (
         <div className={styles.servicesContainer}>

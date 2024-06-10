@@ -70,4 +70,8 @@
     .bottomItem {
         width: 90%;
     }
+
+    .topGrid {
+        height: 50%;
+    }
 }

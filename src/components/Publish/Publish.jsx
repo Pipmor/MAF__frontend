@@ -5,6 +5,7 @@ import styles from './Publish.module.css';
 import { getPublishData } from '../../api/getPublishData.js';
 import PageBlock from "../PageBlock/PageBlock.jsx";
 import { useTranslation } from "react-i18next";
+import i18n from "i18next";
 
 const Publish = () => {
   const { t } = useTranslation();
@@ -24,13 +25,15 @@ const Publish = () => {
     };
 
     fetchData();
-  }, []);
+  }, [i18n.language]);
 
   const handlePageClick = ({ selected }) => {
     setPageNumber(selected);
   };
 
   const products = publishData.slice(pageNumber * productsPerPage, (pageNumber + 1) * productsPerPage);
+
+  console.log(publishData)
 
   return (
       <PageBlock>

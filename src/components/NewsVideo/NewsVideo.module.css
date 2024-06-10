@@ -81,3 +81,40 @@
     background-color: #26b9a8;
     color: #fff;
 }
+@media screen and (min-width: 400px) and (max-width: 1024px) {
+    .newsContainer {
+        display: flex;
+        flex-direction: column; /* Левая колонка будет располагаться над основным контейнером */
+        gap: 20px;
+    }
+
+    .leftColumn {
+        padding: 30px;
+    }
+
+    .videoCardContainer {
+        display: flex; /* Размещаем карточки видео в столбец */
+        flex-direction: column;
+        gap: 10px; /* Расстояние между карточками */
+    }
+
+    .videoCard {
+        padding: 10px; /* Уменьшим отступ для карточек */
+        max-width: 200px; /* Максимальная ширина для карточек */
+        border-radius: 10px;
+    }
+
+    .videoCard img {
+        width: 100%; /* Максимальная ширина для изображений */
+        height: auto; /* Автоматическая высота для изображений */
+        border-radius: 10px;
+    }
+
+    .videoText {
+        padding: 10px; /* Уменьшим отступ для текста */
+    }
+
+    .pagination {
+        justify-content: center;
+    }
+}

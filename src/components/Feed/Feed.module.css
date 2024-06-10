@@ -63,11 +63,36 @@
     color: #fff;
 }
 
-/* Медиа-запрос для адаптации на устройствах с шириной от 400px до 1024px */
 @media screen and (min-width: 400px) and (max-width: 1024px) {
+    .gridContainer {
+        display: grid;
+        grid-template-columns: 1fr; /* Одна колонка на мобильных устройствах */
+        gap: 20px;
+    }
+
+    .leftColumn {
+        margin-top: 20px; /* Уменьшаем отступ сверху */
+        padding: 10px; /* Уменьшаем отступы внутри колонки */
+        order: -1; /* Помещаем левую колонку над основным контейнером */
+    }
+
+    .container {
+        margin-top: 20px; /* Уменьшаем отступ сверху для основного контейнера */
+        padding: 10px; /* Уменьшаем отступы внутри основного контейнера */
+    }
+
+    .leftColumn li {
+        margin-bottom: 10px; /* Уменьшаем отступы между элементами списка */
+    }
+
+    .title {
+        font-size: 18px; /* Уменьшаем размер шрифта заголовка */
+    }
+
     .wrapperCard {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
+        grid-template-columns: repeat(2, 1fr); /* Уменьшаем количество колонок */
+        gap: 16px; /* Уменьшаем промежуток между колонками */
     }
 }
+

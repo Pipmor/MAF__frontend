@@ -92,7 +92,7 @@
 
     .eventsCard img {
         width: 50%;
-        max-height: 5em;
+        height: 10em;
     }
 
     .cardPhoto{
@@ -101,8 +101,8 @@
 
     .eventsText {
         flex: 1;
-        padding: 0 10px; /* Добавляем отступы по бокам для текста */
-        font-size: 10px;
+        padding: 0px;
+        font-size: 8px;
     }
 }
 

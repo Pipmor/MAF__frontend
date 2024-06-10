@@ -171,4 +171,7 @@
     justify-content: flex-start; /* Выравниваем иконки по левому краю */
     height: auto; /* Автоматическая высота */
   }
+  .formWrapper {
+    margin-bottom: 20px;
+  }
 }

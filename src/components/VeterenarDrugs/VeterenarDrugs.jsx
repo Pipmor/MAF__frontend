@@ -7,6 +7,7 @@ import ReactPaginate from 'react-paginate';
 import { getProductsData } from '../../api/getProductsData.js';
 import ProductFilter from '../ProductFilter/ProductFilter.jsx';
 import { useTranslation } from 'react-i18next';
+import i18n from "i18next";
 
 const VeterenarDrugs = ({ isHomePage }) => {
     const { t } = useTranslation();
@@ -27,7 +28,7 @@ const VeterenarDrugs = ({ isHomePage }) => {
         };
 
         fetchProducts();
-    }, []);
+    }, [i18n.language]);
 
     const handleFilterChange = (filteredProducts) => {
         setFilteredProducts(filteredProducts);
@@ -68,11 +69,11 @@ const VeterenarDrugs = ({ isHomePage }) => {
                             currentProducts.map((product) => (
                                 <ProductCard
                                     key={product.id}
-                                    title={product.name}
-                                    description={product.short_description}
+                                    title={t(product.name)} // Tra}slate product name
+                                    description={t(product.short_description)} // Translate product description
                                     img_product={product.img_product}
                                     id={product.id}
-                                    types={product.icon_animal.map(animal => animal.icon)} // Изменение здесь
+                                    types={product.icon_animal.map(animal => animal.icon)}
                                 />
                             ))
                         ) : (

@@ -18,8 +18,7 @@
 @media screen and (min-width: 400px) and (max-width: 800px) {
   .cardList {
     grid-template-columns: 1fr; /* Одна колонка для адаптивного отображения */
-    padding-left: 35px; /* Уменьшаем внутренний отступ слева */
-    padding-right: 20px; /* Уменьшаем внутренний отступ справа */
+    padding-left: 140px; /* Уменьшаем внутренний отступ слева */
   }
 
   .mapImage {

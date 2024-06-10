@@ -26,9 +26,9 @@
 }
 
 .imgProduct {
-  width: 100%; /* Сделаем изображение растягивающимся на всю ширину */
-  max-width: 295px; /* Ограничим максимальную ширину изображения */
-  height: auto; /* Автоматическая высота для сохранения пропорций */
+  width: 100%;
+  max-width: 295px;
+  height: auto;
   border-radius: 11.2px;
   border: 1.4px;
   opacity: 1;
@@ -53,8 +53,9 @@
 .iconContainer {
   display: flex;
   gap: 10px;
-  max-width: 300px; /* Ограничим максимальную ширину контейнера иконок */
+  max-width: 300px;
   height: 70px;
+  width: 5em;
 }
 
 .button_wrapper {
@@ -72,9 +73,6 @@
   margin-bottom: 20px;
 }
 
-.iconContainer {
-  width: 2em;
-}
 
 /* Базовые стили для wrapperCard */
 .wrapperCard {
@@ -83,16 +81,77 @@
   gap: 20px;
 }
 
-@media screen and (max-width: 1100px){
+@media screen and (max-width: 1024px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+
+  .product {
+    grid-template-columns: 1fr;
+  }
+
+  .productInfo {
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+
+  .leftColumn {
+    margin-top: 20px;
+    padding: 10px;
+    order: -1;
+  }
+
+  .container {
+    margin-top: 20px;
+    padding: 10px;
+  }
+
+  .leftColumn li {
+    margin-bottom: 10px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
   .wrapperCard {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 16px;
+  }
+
+  .imgProduct {
+    max-width: 80%;
+  }
+
+  .iconContainer {
+    width: 1.5em; /* Уменьшаем размер иконок */
   }
 }
 
-@media screen and (max-width: 900px){
+@media screen and (max-width: 400px) {
   .wrapperCard {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 8px;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .productInfo {
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+
+  .imgProduct {
+    max-width: 80%;
+  }
+
+  .iconContainer {
+    width: 1em; /* Еще больше уменьшаем размер иконок на маленьких экранах */
+  }
+
+  .productInfo h3 {
+    font-size: 24px;
+  }
+
+  .productInfo p {
+    font-size: 12px;
   }
 }

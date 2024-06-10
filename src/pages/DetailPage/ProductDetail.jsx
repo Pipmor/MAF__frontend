@@ -1,23 +1,44 @@
-import React from "react";
+// ProductDetail.jsx
+
+import React, { useState, useEffect } from "react";
 import PageBlock from "../../components/PageBlock/PageBlock.jsx";
 import styles from "./ProductDetail.module.css";
 import { Link, useParams } from "react-router-dom";
 import Button from "../../components/UI/Button/Button.jsx";
 import useSWRImmutable from "swr/immutable";
-import { getProductsData } from "../../api/getProductsData.js";
+import { getProductById } from "../../api/getProductById.js";
 import Tabs from "../../components/Tabs/Tabs.jsx";
-import TabsData from "../../components/Tabs/TabsData.jsx";
 import { useModal } from "../../components/Modal/ModalContext";
-import {useTranslation} from "react-i18next";
+import { useTranslation } from "react-i18next";
+import {getProductsData} from "../../api/getProductsData.js";
+import i18n from "i18next";
 
 const ProductDetail = ({ isHomePage }) => {
     const { t } = useTranslation();
     const { productId } = useParams();
-    const { data: productsData } = useSWRImmutable("/products/", getProductsData);
     const { openModal } = useModal();
+    const [filteredProducts, setFilteredProducts] = useState([]);
 
-    // Найти продукт, соответствующий productId
-    const product = productsData?.find(p => p.id === parseInt(productId, 10));
+
+    useEffect(() => {
+        const fetchProducts = async () => {
+            try {
+                const productsById = await getProductById(productId);
+                setFilteredProducts(productsById);
+
+
+            } catch (error) {
+                console.error('Failed to fetch products:', error);
+            }
+        };
+
+        fetchProducts();
+    }, [i18n.language]);
+
+    console.log(filteredProducts, 'data')
+
+    // if (error) return <div>Failed to load product</div>;
+    if (!filteredProducts) return <div>Loading...</div>;
 
     return (
         <PageBlock className={styles.wrapper}>
@@ -25,30 +46,54 @@ const ProductDetail = ({ isHomePage }) => {
                 <div className={styles.leftColumn}>
                     <ul>
                         <li>
-                            <Link key="veterenarDrugs" to="/veterenarDrugs">{t('productLink2')}</Link>
+                            <Link key="veterenarDrugs" to="/veterenarDrugs">
+                                {t("productLink2")}
+                            </Link>
                         </li>
                         <li>
-                            <Link key="vaccine" to="/vaccine">{t('productLink4')}</Link>
+                            <Link key="vaccine" to="/vaccine">
+                                {t("productLink4")}
+                            </Link>
                         </li>
                         <li>
-                            <Link key="feed" to="/feed">{t('productLink3')}</Link>
+                            <Link key="feed" to="/feed">
+                                {t("productLink3")}
+                            </Link>
                         </li>
                         <li>
-                            <Link key="productNew" to="/productNew">{t('productLink5')}</Link>
+                            <Link key="productNew" to="/productNew">
+                                {t("productLink5")}
+                            </Link>
                         </li>
                     </ul>
                 </div>
                 <div>
-                    {product ? (
+                    {/*<h1>{filteredProducts.applying}</h1>*/}
+                    {/*<h3>{filteredProducts.compound}</h3>*/}
+                    {filteredProducts ? (
                         <div className={styles.product}>
-                            <img className={styles.imgProduct} src={product.img_product} alt={product.name} />
+                            <img
+                                className={styles.imgProduct}
+                                src={filteredProducts.img_product}
+                                alt={filteredProducts.name}
+                            />
                             <div className={styles.productInfo}>
-                                <h3>{product.name}</h3>
-                                <p>{t(product.short_description)}</p>
+                                <h3>{filteredProducts.name}</h3>
+                                <p>{t(filteredProducts.short_description)}</p>
                                 <div className={styles.iconContainer}>
-                                    {product.icon_animal.map((icon, index) => (
-                                        <img key={index} className={styles.icon} src={icon.icon} alt={`Icon ${index + 1}`} />
-                                    ))}
+                                    {
+                                        filteredProducts.icon_animal && filteredProducts.icon_animal.map((animal, index) => (
+                                            <div key={index}>
+                                                <img
+                                                    className={styles.iconContainer}
+                                                    src={animal.icon}
+                                                    alt={`Icon ${index + 1}`}
+                                                />
+                                            </div>
+                                        ))
+                                    }
+
+
                                 </div>
                                 <Button className="button buyButton" onClick={openModal}>
                                     Купить
@@ -59,11 +104,9 @@ const ProductDetail = ({ isHomePage }) => {
                         <p>Продукт не найден</p>
                     )}
 
-                    {TabsData.length > 0 && (
-                        <div className={styles.tabsContainer}>
-                            <Tabs tabsData={TabsData} />
-                        </div>
-                    )}
+                    <div className={styles.tabsContainer}>
+                        <Tabs filteredProducts={filteredProducts} />
+                    </div>
 
                     <div className={styles.button_wrapper}>
                         {isHomePage && (

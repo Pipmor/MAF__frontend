@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import PageBlock from '../PageBlock/PageBlock';
 import styles from './Сalendar.module.css';
 import { useTranslation } from "react-i18next";
-import { getCalendar } from "../../api/getCalendar.js";  // путь к вашему файлу с API-запросом
+import { getCalendar } from "../../api/getCalendar.js";
+import i18n from "i18next";  // путь к вашему файлу с API-запросом
 
 const CalendarPage = () => {
     const { t } = useTranslation();
@@ -24,7 +25,7 @@ const CalendarPage = () => {
         };
 
         fetchData();
-    }, []);
+    }, [i18n.language]);
 
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error: {error.message}</div>;
@@ -53,10 +54,10 @@ const CalendarPage = () => {
                         <tbody>
                         {calendarData.map((event) => (
                             <tr key={event.id}>
-                                <td>{event.data_of_participation}</td>
-                                <td>{event.name_exhibition}</td>
+                                <td>{t(event.data_of_participation)}</td>
+                                <td>{t(event.name_exhibition)}</td>
                                 <td>{event.period}</td>
-                                <td>{event.location}</td>
+                                <td>{t(event.location)}</td>
                             </tr>
                         ))}
                         </tbody>

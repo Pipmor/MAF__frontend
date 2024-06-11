@@ -43,7 +43,7 @@
     border-bottom: 1px solid #716561;
 }
 
-@media screen and (max-width: 1024px) {
+@media only screen and (min-width: 200px) and (max-width: 1024px) {
     .calendarContainer {
         flex-direction: column;
         align-items: center;
@@ -55,23 +55,27 @@
     }
 
     .calendarTable {
+        display: flex;
         margin-left: 0;
-        width: auto;
+        width: 100%;
         border-radius: 10px;
         overflow-x: auto;
+        flex-direction: column;
+        padding: 0px;
+        gap: 2px;
     }
 
     .calendarTable thead th {
         width: auto;
         white-space: nowrap;
         font-size: 14px;
-        padding: 8px;
+        padding: 0px;
         margin-bottom: 0;
     }
 
     .calendarTable tbody td {
         font-size: 14px;
-        padding: 8px;
+        padding: 0px;
     }
 }
 

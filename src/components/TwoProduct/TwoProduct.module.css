@@ -46,10 +46,10 @@
   margin-top: 20px;
 }
 
-@media only screen and (min-width: 400px) and (max-width: 1024px) {
+@media only screen and (min-width: 300px) and (max-width: 1024px) {
   .wrapperCard {
     flex-direction: column;
-    width: 20em;
+    width: 10em;
     align-items: center;
   }
 }

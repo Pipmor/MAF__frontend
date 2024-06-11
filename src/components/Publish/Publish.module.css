@@ -77,8 +77,18 @@
 }
 
 /* Медиа-запрос для адаптации на устройствах с шириной от 400px до 1024px */
-@media screen and (min-width: 400px) and (max-width: 1024px) {
+@media screen and (min-width: 300px) and (max-width: 1024px) {
   .newsCard {
     width: calc(50% - 20px); /* Уменьшаем ширину карточек до половины ширины контейнера с учетом отступов */
+  }
+
+  .newsContainer {
+    display: flex;
+    flex-direction: column; /* Левая колонка будет располагаться над основным контейнером */
+    gap: 20px;
+  }
+
+  .leftColumn {
+    margin-top: 0px;
   }
 }

@@ -35,11 +35,10 @@
     text-align: left;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (min-width: 300px) and (max-width: 1024px) {
     .tabHeader {
         width: 100%; /* Вкладка занимает всю доступную ширину */
         max-width: none; /* Сбрасываем максимальную ширину */
-        border-radius: 0; /* Убираем закругление углов */
         text-align: left; /* Выравниваем текст по левому краю */
         border-radius: 10px;
     }

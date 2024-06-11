@@ -40,3 +40,30 @@
   border: 1px solid white;
   gap: 2px;
 }
+
+@media screen and (min-width: 300px) and (max-width: 1024px) {
+  .img {
+    width: 80%;
+  }
+
+  .text {
+    width: 60px;
+    font-size: 40%;
+  }
+
+  .title {
+    padding: 10px;
+    font-size: 17px;
+  }
+
+  .link {
+    padding: 10px;
+    font-size: 12px;
+    margin-left: -28px;
+  }
+
+  .product {
+    width: 20em;
+  }
+}
+

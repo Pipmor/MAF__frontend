@@ -81,13 +81,23 @@
   color: #fff;
 }
 
-@media screen and (min-width: 400px) and (max-width: 1024px) {
+@media screen and (min-width: 300px) and (max-width: 1024px) {
+    .eventsContainer {
+        display: flex;
+        flex-direction: column; /* Левая колонка будет располагаться над основным контейнером */
+        gap: 20px;
+    }
+
     .eventsCard {
         width: calc(50% - 20px);
         display: flex;
         flex-direction: column;
         align-items: center;
         text-align: center;
+    }
+
+    .leftColumn {
+        padding: 30px;
     }
 
     .eventsCard img {
@@ -103,6 +113,10 @@
         flex: 1;
         padding: 0px;
         font-size: 8px;
+    }
+
+    .leftColumn {
+        margin-top: 0px;
     }
 }
 

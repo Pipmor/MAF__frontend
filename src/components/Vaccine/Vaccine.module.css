@@ -84,7 +84,7 @@
     color: #fff;
 }
 
-@media screen and (min-width: 400px) and (max-width: 1024px) {
+@media screen and (min-width: 300px) and (max-width: 1024px) {
     .gridContainer {
         display: grid;
         grid-template-columns: 1fr; /* Одна колонка на мобильных устройствах */

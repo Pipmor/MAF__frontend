@@ -74,9 +74,9 @@
     z-index: 3;
 }
 
-@media only screen and (min-width: 400px) and (max-width: 1024px) {
+@media only screen and (min-width: 200px) and (max-width: 1024px) {
     .content {
-        margin-right: 2em;
+        margin-left: -3em;
     }
 
     .title {

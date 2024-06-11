@@ -81,7 +81,7 @@
   gap: 20px;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (min-width: 300px) and (max-width: 1024px) {
   .container {
     grid-template-columns: 1fr;
   }
@@ -124,34 +124,7 @@
   }
 
   .iconContainer {
-    width: 1.5em; /* Уменьшаем размер иконок */
+    width: 100%; /* Уменьшаем размер иконок */
   }
 }
 
-@media screen and (max-width: 400px) {
-  .wrapperCard {
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
-
-  .productInfo {
-    margin-right: 0;
-    margin-bottom: 15px;
-  }
-
-  .imgProduct {
-    max-width: 80%;
-  }
-
-  .iconContainer {
-    width: 1em; /* Еще больше уменьшаем размер иконок на маленьких экранах */
-  }
-
-  .productInfo h3 {
-    font-size: 24px;
-  }
-
-  .productInfo p {
-    font-size: 12px;
-  }
-}

@@ -40,7 +40,7 @@ const AboutUs = () => {
                 <p className={styles.paragraph}>{t('aboutMaf')}</p><br/>
             </div>
 
-            <iframe
+            <iframe className={styles.videoPlayer}
                 width="560"
                 height="315"
                 src="https://www.youtube.com/embed/a-xPJJH5Qug?si=pcdZAfrXTMsorXo6"

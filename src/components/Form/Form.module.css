@@ -61,7 +61,7 @@
 }
 
 /* Медиа-запросы для адаптации на различных устройствах */
-@media screen and (min-width: 400px) and (max-width: 1024px) {
+@media screen and (min-width: 300px) and (max-width: 1024px) {
   .flexContainer {
     flex-direction: column;
     margin-left: 0;
@@ -70,5 +70,9 @@
   .errorText {
     margin-left: 0;
     text-align: center;
+  }
+
+  .form{
+    margin-top: 10em;
   }
 }

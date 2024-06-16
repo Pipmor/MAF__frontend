@@ -51,3 +51,27 @@
 .skeleton::before {
   content: "loading...";
 }
+
+@media screen and (min-width: 300px) and (max-width: 1024px) {
+  .ContactCard {
+    padding: 8px;
+    max-width: 100%; /* Полная ширина для мобильных устройств */
+    margin-left: -23px;
+  }
+
+  .subtitle {
+    font-size: 14px; /* Меньший размер шрифта для мобильных устройств */
+    margin-top: 10px; /* Уменьшенный отступ сверху для мобильных устройств */
+    gap: 8px; /* Меньший промежуток для мобильных устройств */
+  }
+
+  .contactList {
+    display: flex;
+    gap: 8px; /* Меньший промежуток для мобильных устройств */
+    align-items: center;
+  }
+
+  .contactLine {
+    font-size: 14px; /* Меньший размер шрифта для мобильных устройств */
+  }
+}

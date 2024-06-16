@@ -28,7 +28,7 @@ const ProductsBlock = ({ isHomePage }) => {
         };
 
         fetchProducts();
-    }, []);
+    }, [i18n.language]);
 
     const handleFilterChange = (filteredProducts) => {
         setFilteredProducts(filteredProducts);
@@ -41,6 +41,7 @@ const ProductsBlock = ({ isHomePage }) => {
 
     const offset = currentPage * productsPerPage;
     const currentProducts = filteredProducts.slice(offset, offset + productsPerPage);
+    console.log(currentProducts, 'fghj')
 
     return (
         <PageBlock className="wrapper">
@@ -69,7 +70,7 @@ const ProductsBlock = ({ isHomePage }) => {
                             currentProducts.map((product) => (
                                 <ProductCard
                                     key={product.id}
-                                    title={product.name} // Tra}slate product name
+                                    title={t(product.name)} // Tra}slate product name
                                     description={t(product.short_description)} // Translate product description
                                     img_product={product.img_product}
                                     id={product.id}

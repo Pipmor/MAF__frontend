@@ -28,10 +28,11 @@
     font-weight: bold;
 }
 
-@media screen and (min-width: 400px) and (max-width: 1024px) {
+@media screen and (min-width: 300px) and (max-width: 1024px) {
     .dropdown {
-        width: 20em; /* Занимает всю доступную ширину */
+        width: 80%; /* Занимает всю доступную ширину */
         margin-top: 40px; /* Убираем отступ сверху */
-        margin-right: 25px;
+        display: flex;
+        align-items: center;
     }
 }

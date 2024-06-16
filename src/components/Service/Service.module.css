@@ -63,11 +63,15 @@
 }
 
 /* Медиа-запрос */
-@media screen and (min-width: 400px) and (max-width: 1024px) {
+@media screen and (min-width: 300px) and (max-width: 1024px) {
     .topItem {
         width: 90%;
     }
     .bottomItem {
         width: 90%;
+    }
+
+    .topGrid {
+        height: 50%;
     }
 }

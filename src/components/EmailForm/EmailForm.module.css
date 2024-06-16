@@ -130,45 +130,18 @@
   padding: 15px 10px;
 }
 
-@media screen and (max-width: 1100px){
-  .wrapperCard {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-  }
-}
-
-@media screen and (max-width: 900px){
-  .wrapperCard {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 8px;
-  }
-}
-
 /* Адаптивные стили для экранов с шириной от 400px до 800px */
-@media screen and (min-width: 400px) and (max-width: 800px) {
+@media screen and (min-width: 300px) and (max-width: 1024px) {
   .container {
     grid-template-columns: 1fr; /* Одна колонка на мобильных устройствах */
   }
 
-  .leftColumn {
-    margin-top: 20px; /* Уменьшаем отступ сверху */
-    padding: 20px; /* Уменьшаем внутренний отступ */
-  }
-
-  .product {
-    grid-template-columns: 1fr; /* Одна колонка на мобильных устройствах */
-  }
 
   .imageWrapper {
-    max-width: 0%; /* Сделаем изображение растягивающимся на всю ширину */
-    border-radius: 8px; /* Уменьшим радиус скругления углов */
-    border-width: 1px; /* Уменьшим толщину рамки */
+    display: none;
   }
 
-  .iconContainer {
-    max-width: none; /* Убираем ограничение максимальной ширины для контейнера иконок */
-    flex-wrap: wrap; /* Позволяем иконкам переноситься на новую строку */
-    justify-content: flex-start; /* Выравниваем иконки по левому краю */
-    height: auto; /* Автоматическая высота */
+  .formWrapper {
+    top: 50px;
   }
 }

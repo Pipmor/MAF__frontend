@@ -35,10 +35,11 @@
 .logo {
   width: 5em;
   height: 5em;
+  border-radius: 10px;
 }
 
 /* Медиа-запросы для адаптации на мобильных устройствах */
-@media screen and (min-width: 400px) and (max-width: 1024px) {
+@media screen and (min-width: 300px) and (max-width: 1024px) {
   .footerNav {
     flex-direction: column; /* Навигация в один столбец */
     align-items: flex-start; /* Выравнивание по левому краю */

@@ -110,14 +110,14 @@
         font-size: 20px; /* Уменьшаем размер шрифта заголовка */
     }
 
-    .subTitle {
-        width: 70%;
-    }
-
     .wrapperCard {
         display: grid;
-        grid-template-columns: repeat(2, 1fr); /* Уменьшаем количество колонок */
-        gap: 16px; /* Уменьшаем промежуток между колонками */
+        grid-template-columns: 1fr; /* Одноколоночный макет для карточек продукции */
+        gap: 16px; /* Уменьшаем промежуток между карточками */
+    }
+
+    .title{
+        display: block;
+        margin-top: 50px;
     }
 }
-

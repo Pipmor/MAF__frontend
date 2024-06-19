@@ -112,11 +112,16 @@
     .eventsText {
         flex: 1;
         padding: 0px;
+        margin-bottom: 10px;
         font-size: 8px;
     }
 
     .leftColumn {
         margin-top: 0px;
+    }
+
+    .pagination {
+        margin-top: 40px;
     }
 }
 

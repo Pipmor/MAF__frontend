@@ -74,4 +74,8 @@
     .topGrid {
         height: 50%;
     }
+
+    .servicesDescription {
+        font-size: 11px;
+    }
 }

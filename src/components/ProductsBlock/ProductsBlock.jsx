@@ -41,7 +41,6 @@ const ProductsBlock = ({ isHomePage }) => {
 
     const offset = currentPage * productsPerPage;
     const currentProducts = filteredProducts.slice(offset, offset + productsPerPage);
-    console.log(currentProducts, 'fghj')
 
     return (
         <PageBlock className="wrapper">
